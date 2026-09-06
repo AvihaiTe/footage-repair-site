@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /typesample/
+Sitemap: https://avihaite.github.io/footage-repair-site/sitemap.xml
