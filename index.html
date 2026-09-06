@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>המצלמה נכבתה באמצע ההקלטה והקובץ לא נפתח? שחזור קבצי וידאו פגומים · אביחי תרם</title>
+<meta name="description" content="קובץ RSV מסוני, קובץ DJI עם moov atom not found, כל הקלטה שהמצלמה לא סיימה לכתוב. מה קרה, מה לא לעשות, למה קובץ 'מתוקן' יוצא מקרטע, ואיך בודקים קובץ לפני שסומכים עליו. צלם וידאו, Sony FX3.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="הקובץ מהמצלמה לא נפתח? ככה מחזירים אותו">
+<meta property="og:description" content="שחזור הקלטות שנקטעו באמצע — Sony RSV, DJI, כל MP4 בלי אינדקס. בדיקה לפני תשלום.">
+<meta property="og:type" content="website">
+<style>
+  :root{--ink:#1a1a1a;--muted:#5d5d5d;--line:#dcdcdc;--bg:#fbfbf9;--accent:#0b5d66;--warn:#9a3412}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:18px;line-height:1.75}
+  main{max-width:720px;margin:0 auto;padding:40px 22px 80px}
+  h1{font-size:34px;line-height:1.25;margin:0 0 12px}
+  h2{font-size:22px;margin:40px 0 8px;padding-top:18px;border-top:1px solid var(--line)}
+  p{margin:10px 0}
+  ul{padding-right:22px;margin:10px 0}
+  li{margin:6px 0}
+  .lead{font-size:20px;color:var(--ink)}
+  .kw{color:var(--muted);font-size:15px;direction:ltr;text-align:right;font-family:Consolas,monospace}
+  .warn{border-right:4px solid var(--warn);padding:8px 14px;margin:14px 0;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:16px;margin:12px 0;background:#fff}
+  th,td{border:1px solid var(--line);padding:9px 10px;text-align:right;vertical-align:top}
+  th{background:#f1f1ee}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:600;margin:8px 0}
+  .cta:focus-visible{outline:3px solid #000}
+  footer{margin-top:50px;color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:14px}
+  a{color:var(--accent)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"המצלמה נכבתה באמצע ההקלטה והקובץ לא נפתח. הצילומים אבדו?","acceptedAnswer":{"@type":"Answer","text":"כמעט תמיד לא. התמונה והסאונד נכתבו לכרטיס, אבל האינדקס שהנגן צריך נכתב אחרון, כשההקלטה נסגרת כמו שצריך. בלי האינדקס אף נגן לא פותח את הקובץ, אבל המידע עצמו שם."}},
+{"@type":"Question","name":"מה זה קובץ RSV של סוני?","acceptedAnswer":{"@type":"Answer","text":"קובץ שמצלמות סוני (FX3, FX30, FX6, A7) משאירות כשההקלטה נקטעה לפני שהמצלמה סיימה לכתוב אותה. הוא מכיל את הצילומים בלי אינדקס. שינוי הסיומת ל-MP4 לא מוסיף את האינדקס ולכן בדרך כלל לא עוזר."}},
+{"@type":"Question","name":"ניסיתי תוכנת תיקון והקובץ יצא מקרטע או עם אודיו שזז. למה?","acceptedAnswer":{"@type":"Answer","text":"התוכנה בונה אינדקס חדש לפי קליפ תקין שנותנים לה. אם הקליפ לא תואם בדיוק (רזולוציה, פריימרייט, מצב הקלטה), האינדקס יוצא קצת שגוי. נגן מסתיר את זה בזמן גלילה, ייצוא או תוכנת עריכה לא. הפתרון הוא קליפ ייחוס תואם יותר וריצה נוספת, לא תוכנה אחרת."}},
+{"@type":"Question","name":"מה לא לעשות כשיש קובץ פגום מהמצלמה?","acceptedAnswer":{"@type":"Answer","text":"לא לפרמט את הכרטיס, לא להמשיך לצלם עליו, לא להריץ תוכנת תיקון על הקובץ המקורי אלא על עותק, ולבדוק שהעותק הגיע שלם אם הוא נשלח בהעברה."}}
+]}
+</script>
+</head>
+<body>
+<main>
+
+<h1>הקובץ מהמצלמה לא נפתח? הצילומים כמעט תמיד עדיין שם.</h1>
+<p class="lead">המצלמה נכבתה באמצע, נגמרה הסוללה, הכרטיס נשלף לפני הזמן — ועכשיו יש קובץ שאף נגן לא פותח. סוני משאיר קובץ <strong>RSV</strong>, DJI משאיר MP4 שכתוב עליו <strong>moov atom not found</strong>, מצלמות אחרות פשוט מסרבות לנגן. זה לא אומר שהצילומים אבדו.</p>
+<p class="kw">Sony RSV · moov atom not found · FX3 · FX30 · FX6 · A7 · DJI Osmo · Mavic · GoPro</p>
+
+<h2>מה בעצם קרה</h2>
+<p>המצלמה כותבת את התמונה והסאונד לכרטיס כל הזמן. אבל את האינדקס — הרשימה שאומרת לנגן איפה כל פריים יושב — היא כותבת <strong>אחרון</strong>, כשלוחצים סטופ וההקלטה נסגרת כמו שצריך. נפל החשמל באמצע, ויש לך את כל המידע בלי מפה. בגלל זה שינוי הסיומת ל-MP4 לא עוזר: הקובץ עדיין בלי אינדקס.</p>
+
+<h2>קודם כל, מה לא לעשות</h2>
+<div class="warn">
+<ul>
+<li><strong>לא לפרמט את הכרטיס.</strong></li>
+<li><strong>לא להמשיך לצלם על אותו כרטיס.</strong> פריימים שנדרסים לא חוזרים.</li>
+<li><strong>לא להריץ תוכנת תיקון על הקובץ המקורי.</strong> עובדים על עותק.</li>
+<li><strong>אם הקובץ הגיע אליך בהעברה (WeTransfer, דרייב) — לבדוק שהוא שלם.</strong> העברה שנתקעה מייצרת קובץ שנראה בסדר ומבפנים ריק. שום כלי לא משחזר בייטים שלא הגיעו.</li>
+</ul>
+</div>
+
+<h2>איזה מקרה זה אצלך</h2>
+<table>
+<tr><th>מה קרה</th><th>מה זה צריך</th></tr>
+<tr><td>ההקלטה נקטעה — המצלמה נכבתה, נגמרה סוללה, הכרטיס נשלף. <strong>הקובץ קיים ולא נפתח.</strong></td><td>בנייה מחדש של האינדקס לפי קליפ תקין מאותה מצלמה. <strong>זה מה שאני עושה.</strong></td></tr>
+<tr><td>מחקת קבצים או פרמטת את הכרטיס. אין קובץ לשלוח.</td><td>תוכנת שחזור שסורקת את הכרטיס (למשל RescuePRO של SanDisk). ולהפסיק להשתמש בכרטיס מיד.</td></tr>
+<tr><td>הכרטיס לא מזוהה בכלל, רטוב, שבור.</td><td>מעבדת שחזור עם חדר נקי. זה לא אצלי.</td></tr>
+</table>
+
+<h2>ניסית תוכנה והקובץ יצא מקרטע?</h2>
+<p>זה לא באג אקראי. כל התוכנות האלה עושות אותו דבר מתחת למכסה: בונות אינדקס חדש לפי קליפ תקין שנותנים להן. אם הקליפ לא תואם בדיוק — רזולוציה, פריימרייט, מצב הקלטה — האינדקס יוצא קצת שגוי. הנגן מסתיר את זה כשגוללים; ייצוא או פרמייר לא. ככה מקבלים תמונה שקופצת, ריבועים ירוקים, או אודיו שזז לקראת הסוף.</p>
+<p><strong>לפני שסומכים על קובץ מתוקן, בודקים אותו כולו:</strong> שהאורך תואם למה שצילמת, ואז גוללים לחמש-שש נקודות לאורך הקובץ, במיוחד לקראת הסוף, ורואים שהשפתיים עדיין תואמות לסאונד. אם משהו לא בסדר, הפתרון הוא קליפ ייחוס תואם יותר וריצה נוספת — לא תוכנה אחרת.</p>
+
+<h2>מה אני צריך ממך</h2>
+<ul>
+<li>הקובץ הפגום <strong>כמו שהוא על הכרטיס</strong>, לא אחרי המרה ולא אחרי תוכנת תיקון.</li>
+<li>קליפ תקין מאותה מצלמה, באותן הגדרות. עדיף מאותו יום. האורך לא משנה.</li>
+<li>אם יש קבצי XML או LRF ליד הקובץ — גם אותם.</li>
+</ul>
+<p>אני בודק קודם אם המידע בכלל קיים בקובץ, ואומר לך מה המצב. אם אפשר לשחזר — מקבלים קובץ שעובד, אחרי בדיקת פענוח על כל דקה. אם לא הצלחתי — לא שילמת.</p>
+
+<h2>מי אני</h2>
+<p>אביחי תרם, צלם ועורך וידאו, מצלם על Sony FX3. התחלתי עם זה כשההקלטה של חתונה של חבר לקבוצה חזרה כקובץ RSV — כמעט שעתיים, 65 ג'יגה. הקובץ חזר שלם, אפס שגיאות בבדיקה של כל דקה. מאז עזרתי לעוד כמה צלמים, ועכשיו זה שירות.</p>
+
+<h2>דברו איתי</h2>
+<p>תשלחו את הקובץ והקליפ התקין בלינק לדרייב או WeTransfer, ואני אחזור אליכם עם תשובה.</p>
+<p><a class="cta" href="mailto:avihaiteram@gmail.com?subject=קובץ%20פגום%20מהמצלמה">שלחו לי מייל</a></p>
+
+<footer>אביחי תרם · שחזור קבצי וידאו ממצלמה · Sony RSV · DJI · moov atom not found</footer>
+</main>
+</body>
+</html>
