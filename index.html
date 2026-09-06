@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action https://formsubmit.co">
 <meta name="referrer" content="no-referrer">
 <title>המצלמה נכבתה באמצע ההקלטה והקובץ לא נפתח? מה עושים עם קובץ RSV או moov atom not found</title>
 <meta name="description" content="קובץ RSV מסוני, קובץ DJI עם moov atom not found, כל הקלטה שהמצלמה לא סיימה לכתוב. מה קרה, מה לא לעשות, איך משחזרים לבד עם תוכנה חינמית, למה קובץ 'מתוקן' יוצא מקרטע, ואיך בודקים אותו לפני שסומכים עליו.">
@@ -47,6 +47,17 @@
   td:first-child{width:46%}
   .steps li{margin:12px 0}
   .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
   .contact{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:20px}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
@@ -156,7 +167,21 @@
 <h2 id="h-stuck">אם נתקעתם</h2>
 <div class="contact">
 <p>אני אביחי, צלם ועורך וידאו, מצלם על Sony FX3. שחזרתי כבר כמה קבצי RSV, כולל אחד שלי — הקלטה של כמעט שעתיים שחזרה שלמה. אם הקובץ גדול, אם גם הריצה השנייה יצאה מקרטעת, או שפשוט אין לכם ראש לזה עכשיו — תשלחו לי לינק לקובץ ולקליפ התקין. אני בודק קודם אם החומר בכלל נמצא בקובץ ואומר לכם מה המצב — <strong>הבדיקה הזאת בחינם</strong>, ולא משלמים כלום לפני שיודעים שיש מה להציל. ואם בסוף לא הצלחתי, לא שילמתם.</p>
-<a class="cta" href="mailto:avihaiteram@gmail.com?subject=קובץ%20פגום%20מהמצלמה">שלחו לי מייל</a>
+<form action="https://formsubmit.co/avihaiteram@gmail.com" method="POST" aria-label="טופס פנייה">
+<input type="hidden" name="_subject" value="קובץ פגום מהמצלמה — פנייה מהאתר">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="language" value="עברית">
+<input type="hidden" name="_next" value="https://avihaite.github.io/footage-repair-site/#sent">
+<div class="hp" aria-hidden="true"><label for="hp-he">אל תמלאו</label><input id="hp-he" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+<div class="field"><label for="f-name">שם</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+<div class="field"><label for="f-phone">טלפון</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel"></div>
+<div class="field"><label for="f-email">מייל <small>(לא חובה)</small></label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+<div class="field"><label for="f-msg">מה קרה? <small>(לא חובה — איזו מצלמה, ואיך הקובץ הגיע אליכם)</small></label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+<button class="btn" type="submit">שלחו ואני אחזור אליכם</button>
+</form>
+<p id="sent" class="sent" tabindex="-1">קיבלתי, תודה. אני חוזר אליכם בהקדם.</p>
+<p><small>מעדיפים מייל? avihaiteram@gmail.com</small></p>
 </div>
 </section>
 
@@ -167,7 +192,7 @@
 <p>האתר הזה נבנה כך שיהיה נגיש לכולם, בהתאם לתקן הישראלי ת"י 5568 (המבוסס על הנחיות WCAG 2.0 ברמה AA): מבנה כותרות תקין, ניווט מלא במקלדת עם סימון מוקד ברור, קישור "דילוג לתוכן", ניגודיות צבעים תקינה, טקסט שניתן להגדיל בדפדפן, טבלה עם כותרות עמודה, ובלי תמונות, סרטונים, אנימציות או תוכן שמתחלף לבד. האתר הוא עמוד אחד סטטי ללא טפסים.</p>
 <p>אם נתקלתם בקושי נגישות באתר, אשמח לדעת ולתקן: <a href="mailto:avihaiteram@gmail.com?subject=נגישות%20באתר">avihaiteram@gmail.com</a>. ההצהרה עודכנה בספטמבר 2026.</p>
 <h2 id="h-priv">פרטיות</h2>
-<p>האתר לא אוסף מידע אישי, לא משתמש בעוגיות ולא מפעיל כלי מעקב או אנליטיקס. הגופן והקבצים נטענים מהאתר עצמו. האתר מאוחסן בשירות GitHub Pages, שכמו כל שרת שומר רישומי גישה טכניים. פנייה במייל היא לבחירתכם, ומה שתשלחו משמש רק לטיפול בפנייה.</p>
+<p>האתר לא משתמש בעוגיות ולא מפעיל כלי מעקב או אנליטיקס. הגופן והקבצים נטענים מהאתר עצמו. האתר מאוחסן בשירות GitHub Pages, שכמו כל שרת שומר רישומי גישה טכניים. הפרטים שתמלאו בטופס (שם, טלפון, ומייל אם בחרתם) מגיעים אליי במייל דרך שירות הטפסים FormSubmit ומשמשים רק כדי לחזור אליכם על הפנייה. הם לא נמסרים לאף אחד אחר, ואפשר לבקש למחוק אותם בכל רגע במייל.</p>
 </section>
 
 <footer>אביחי תרם · Sony RSV · DJI · moov atom not found · <a href="en/" lang="en" hreflang="en">English</a></footer>
