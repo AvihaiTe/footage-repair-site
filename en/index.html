@@ -105,8 +105,8 @@
 <thead><tr><th scope="col">What happened</th><th scope="col">What to do</th></tr></thead>
 <tbody>
 <tr><td>The recording was cut off. <strong>The file exists, but won't open.</strong></td><td>Build it a new map using a healthy clip from the same camera. You can do it yourself — explained below.</td></tr>
-<tr><td>You deleted files or formatted the card. There's no file at all.</td><td>That's a different job: recovering from the card. Software like SanDisk's RescuePRO, and don't touch the card in the meantime.</td></tr>
-<tr><td>The card isn't detected at all, got wet, or is physically broken.</td><td>A recovery lab. Software won't help here.</td></tr>
+<tr><td>You deleted files or formatted the card. There's no file at all.</td><td>That's a different job: recovering from the card itself. <a href="#h-deleted">What to do</a> — and don't touch the card in the meantime.</td></tr>
+<tr><td>The card isn't detected at all, got wet, or is physically broken.</td><td>Software won't help here, but there are a few things to try before a lab. <a href="#h-dead">What to do</a>.</td></tr>
 </tbody>
 </table>
 </section>
@@ -120,8 +120,31 @@
 </ol>
 </section>
 
+<section aria-labelledby="h-deleted">
+<h2 id="h-deleted">If you deleted files or formatted the card</h2>
+<p>Deleting and formatting don't erase the footage itself; they erase the record of where it is. The footage stays on the card until something new is written over it. So the one rule that decides everything: <strong>from the moment it happens, don't shoot on that card and don't save anything to it.</strong></p>
+<ol class="steps">
+<li><strong>Take the card out of the camera</strong> and connect it to a computer with a card reader.</li>
+<li><strong>Run a tool that scans the card for deleted files.</strong> <a href="https://www.cgsecurity.org/wiki/PhotoRec" rel="noopener">PhotoRec</a> is free and works on Windows and Mac. SanDisk's RescuePRO does the same with a friendlier interface.</li>
+<li><strong>Save what it finds to a different drive</strong>, never back onto the card.</li>
+<li><strong>Check the videos that came back.</strong> A long clip recovered from a deleted card sometimes comes back without its map — exactly the first case. If a file looks the right size and won't open, carry on with it using the guide above.</li>
+</ol>
+<p>Whatever was shot after the deletion was written over the old footage, and that part is gone for good. That's the whole difference between "everything came back" and "half came back".</p>
+</section>
+
+<section aria-labelledby="h-dead">
+<h2 id="h-dead">If the card isn't detected at all</h2>
+<ul>
+<li><strong>If the computer offers to format it — no.</strong> "The disk is not formatted, format now?" is the message that kills the chance. Close it.</li>
+<li><strong>Try another card reader and another cable.</strong> A large share of "dead card" is a dead reader.</li>
+<li><strong>Try the camera itself.</strong> Put the card in the camera and connect the camera to the computer by cable. Sometimes the camera reads a card an external reader can't.</li>
+<li><strong>If still nothing — don't open it, don't bake it dry, don't try ten more times.</strong> Every attempt on a physically damaged card reduces what a lab can get off it.</li>
+<li><strong>A recovery lab.</strong> Expect an inspection fee first and a quote per case. Worth asking two.</li>
+</ul>
+</section>
+
 <section aria-labelledby="h-why">
-<h2 id="h-why">Why a "repaired" file comes out jittery</h2>
+<h2 id="h-why">Back to the first case: why a "repaired" file comes out jittery</h2>
 <p>It isn't random. All of these tools build the new map from the sample clip. If the sample doesn't match exactly, the map comes out slightly off. When you scrub in a player it looks fine — and then when you export, or open it in your editing app, the picture jumps, green blocks appear, or the sound drifts toward the end.</p>
 <p><strong>So before you trust a repaired file:</strong> check its duration matches what you actually shot. Scrub to five or six points across the file, especially near the end, and watch a few seconds at each. And make sure lips still match sound. If anything's off — a better-matched sample clip and another pass. Not a different program.</p>
 </section>
