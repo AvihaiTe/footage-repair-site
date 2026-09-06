@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <title>Camera died mid-recording and the file won't open? What to do with a Sony RSV file or "moov atom not found"</title>
 <meta name="description" content="A Sony .RSV file, a DJI clip that says moov atom not found, any recording the camera never finished writing. What happened, what not to do, how to repair it yourself with a free tool, why a 'repaired' file comes out jittery, and how to check it before you trust it.">
 <meta name="robots" content="index,follow">
@@ -11,43 +13,49 @@
 <meta property="og:title" content="Camera died mid-recording? The footage is usually still there">
 <meta property="og:description" content="A short guide to an interrupted recording — Sony RSV, DJI, any MP4 without its index. What not to do, how to repair it, how to check it.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../fonts/assistant.css">
 <style>
-  :root{--ink:#1c1c1c;--muted:#666;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI",Arial,sans-serif;font-size:19px;line-height:1.75}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI",Arial,sans-serif;font-size:1.1875rem;line-height:1.75}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{left:8px}
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
   .hero .in{max-width:760px;margin:0 auto;padding:56px 24px 40px;position:relative}
-  .lang{position:absolute;top:22px;right:24px;font-size:15px}
-  .hero .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;padding:4px 12px;border-radius:20px;margin-bottom:16px}
-  h1{font-size:38px;line-height:1.2;margin:0 0 14px;font-weight:700}
-  .lead{font-size:21px;margin:0;max-width:640px}
-  .kw{color:var(--muted);font-size:14px;font-family:Consolas,monospace;margin-top:18px}
-  main{max-width:760px;margin:0 auto;padding:16px 24px 80px}
+  nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
+  .hero .tag{display:inline-block;background:var(--accent-soft);color:#0b5058;font-weight:700;font-size:.875rem;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:640px}
+  .kw{color:var(--muted);font-size:.875rem;font-family:Consolas,monospace;margin-top:18px}
+  main{max-width:760px;margin:0 auto;padding:16px 24px 40px}
   section{margin:44px 0}
-  h2{font-size:24px;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
   h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
   p{margin:10px 0}
   ul,ol{padding-left:24px;margin:10px 0}
   li{margin:8px 0}
   .warn{background:var(--warn-soft);border-left:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
   .warn ul{margin:4px 0}
-  table{border-collapse:collapse;width:100%;font-size:17px;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:left;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
   th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
   th{background:#f3f2ee;font-weight:700}
   tr:last-child td{border-bottom:none}
   td:first-child{width:46%}
   .steps li{margin:12px 0}
-  .steps li strong{color:var(--accent)}
+  .steps li strong{color:#0b5058}
   .contact{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:20px}
-  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:18px;margin-top:6px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
-  .cta:focus-visible{outline:3px solid #000;outline-offset:2px}
-  footer{max-width:760px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:14px}
-  a{color:var(--accent)}
-  @media (max-width:600px){h1{font-size:30px}.lead{font-size:19px}body{font-size:18px}td:first-child{width:auto}.lang{position:static;display:block;margin-bottom:12px}}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:760px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:760px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -60,24 +68,25 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="hero"><div class="in">
-<a class="lang" href="../" lang="he">עברית</a>
+<header class="hero"><div class="in">
+<nav class="lang" aria-label="Language"><a href="../" lang="he" hreflang="he">עברית</a></nav>
 <span class="tag">A short guide for shooters</span>
 <h1>Camera died mid-recording? The footage is usually still there.</h1>
 <p class="lead">The camera shut off, the battery died, you pulled the card a second too early — and now there's a file no player will open. On Sony it shows up as an <strong>RSV</strong> file; on DJI it's an MP4 that says <strong>moov atom not found</strong>. It happens to everyone, and most of the time it can be saved. Here's what to know before you do anything.</p>
-<p class="kw">Sony RSV · moov atom not found · FX3 · FX30 · FX6 · A7 · DJI Osmo · Mavic · GoPro</p>
-</div></div>
+<p class="kw" aria-label="Keywords">Sony RSV · moov atom not found · FX3 · FX30 · FX6 · A7 · DJI Osmo · Mavic · GoPro</p>
+</div></header>
 
-<main>
+<main id="main">
 
-<section>
-<h2>What actually happened</h2>
+<section aria-labelledby="h-what">
+<h2 id="h-what">What actually happened</h2>
 <p>The camera writes picture and sound to the card the whole time. But there's one more small part of the file — think of it as a <strong>map</strong> that tells a player where every frame sits — and the camera writes that map only at the end, when you press stop. If the power went before that, you're left with all the footage and no map, and no player knows where to start. That's why renaming the file to .mp4 doesn't help: it still has no map.</p>
 </section>
 
-<section>
-<h2>Before you do anything</h2>
+<section aria-labelledby="h-dont">
+<h2 id="h-dont">Before you do anything</h2>
 <div class="warn">
 <ul>
 <li><strong>Don't format the card.</strong></li>
@@ -88,33 +97,36 @@
 </div>
 </section>
 
-<section>
-<h2>Which case is yours</h2>
+<section aria-labelledby="h-which">
+<h2 id="h-which">Which case is yours</h2>
 <table>
-<tr><th>What happened</th><th>What to do</th></tr>
+<caption>Three different situations, three different fixes</caption>
+<thead><tr><th scope="col">What happened</th><th scope="col">What to do</th></tr></thead>
+<tbody>
 <tr><td>The recording was cut off. <strong>The file exists, but won't open.</strong></td><td>Build it a new map using a healthy clip from the same camera. You can do it yourself — explained below.</td></tr>
 <tr><td>You deleted files or formatted the card. There's no file at all.</td><td>That's a different job: recovering from the card. Software like SanDisk's RescuePRO, and don't touch the card in the meantime.</td></tr>
 <tr><td>The card isn't detected at all, got wet, or is physically broken.</td><td>A recovery lab. Software won't help here.</td></tr>
+</tbody>
 </table>
 </section>
 
-<section>
-<h2>How to repair it yourself</h2>
+<section aria-labelledby="h-diy">
+<h2 id="h-diy">How to repair it yourself</h2>
 <ol class="steps">
 <li><strong>A sample clip.</strong> You need a healthy recording from the same camera, at exactly the same settings: same resolution, same frames per second (25, 50, 100…), same recording quality. Length doesn't matter — put a card in, lens cap on, record 30 seconds.</li>
-<li><strong>A free tool called untrunc.</strong> <a href="https://github.com/anthwlock/untrunc/releases/latest">Download it here</a> (Windows, with a simple interface). Pick the sample clip, pick the broken file, run it. It's exactly what the paid tools do. Sometimes it takes a second run.</li>
+<li><strong>A free tool called untrunc.</strong> <a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">Download it here</a> (Windows, with a simple interface). Pick the sample clip, pick the broken file, run it. It's exactly what the paid tools do. Sometimes it takes a second run.</li>
 <li><strong>Then check.</strong> This is the part most people skip, and it's why they only find the problem once they sit down to edit.</li>
 </ol>
 </section>
 
-<section>
-<h2>Why a "repaired" file comes out jittery</h2>
+<section aria-labelledby="h-why">
+<h2 id="h-why">Why a "repaired" file comes out jittery</h2>
 <p>It isn't random. All of these tools build the new map from the sample clip. If the sample doesn't match exactly, the map comes out slightly off. When you scrub in a player it looks fine — and then when you export, or open it in your editing app, the picture jumps, green blocks appear, or the sound drifts toward the end.</p>
 <p><strong>So before you trust a repaired file:</strong> check its duration matches what you actually shot. Scrub to five or six points across the file, especially near the end, and watch a few seconds at each. And make sure lips still match sound. If anything's off — a better-matched sample clip and another pass. Not a different program.</p>
 </section>
 
-<section>
-<h2>If you're stuck</h2>
+<section aria-labelledby="h-stuck">
+<h2 id="h-stuck">If you're stuck</h2>
 <div class="contact">
 <p>I'm Avihai, a videographer and editor shooting on a Sony FX3. I've repaired a number of RSV files, including one of my own — a recording of nearly two hours that came back whole. If the file is big, if the second run also came out jittery, or you just don't have the head for this right now — send me a link to the file and to the healthy clip. I first check whether the footage is actually in the file and tell you where you stand — <strong>that check is free</strong>, and you pay nothing before you know there's something to save. And if in the end I couldn't do it, you don't pay.</p>
 <a class="cta" href="mailto:avihaiteram@gmail.com?subject=Corrupted%20camera%20file">Email me</a>
@@ -122,6 +134,15 @@
 </section>
 
 </main>
-<footer>Avihai Teram · Sony RSV · DJI · moov atom not found · <a href="../" lang="he">עברית</a></footer>
+
+<section class="legal" aria-labelledby="h-a11y">
+<h2 id="h-a11y">Accessibility statement</h2>
+<p>This page is built to be usable by everyone, following Israeli Standard 5568 (based on WCAG 2.0 level AA): a proper heading structure, full keyboard navigation with a visible focus indicator, a skip-to-content link, sufficient colour contrast, text that scales with your browser settings, a table with column headers, and no images, video, animation or auto-changing content. It is a single static page with no forms.</p>
+<p>If something here is hard for you to use, I'd like to know and fix it: <a href="mailto:avihaiteram@gmail.com?subject=Accessibility">avihaiteram@gmail.com</a>. Statement updated September 2026.</p>
+<h2 id="h-priv">Privacy</h2>
+<p>This page collects no personal data, sets no cookies, and runs no tracking or analytics. The font and all files load from this site itself. It is hosted on GitHub Pages, which like any web server keeps technical access logs. Emailing me is your choice, and what you send is used only to handle your request.</p>
+</section>
+
+<footer>Avihai Teram · Sony RSV · DJI · moov atom not found · <a href="../" lang="he" hreflang="he">עברית</a></footer>
 </body>
 </html>
