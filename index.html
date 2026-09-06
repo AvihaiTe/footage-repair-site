@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
 <meta name="referrer" content="no-referrer">
-<title>המצלמה נכבתה באמצע ההקלטה והקובץ לא נפתח? מה עושים עם קובץ RSV או moov atom not found</title>
-<meta name="description" content="קובץ RSV מסוני, קובץ DJI עם moov atom not found, כל הקלטה שהמצלמה לא סיימה לכתוב. מה קרה, מה לא לעשות, איך משחזרים לבד עם תוכנה חינמית, למה קובץ 'מתוקן' יוצא מקרטע, ואיך בודקים אותו לפני שסומכים עליו.">
+<title>קובץ RSV לא נפתח? המצלמה נכבתה באמצע ההקלטה — מה עושים</title>
+<meta name="description" content="קובץ RSV מסוני או moov atom not found ב-DJI: מה קרה, מה לא לעשות, איך משחזרים לבד עם תוכנה חינמית, ואיך בודקים את הקובץ לפני שסומכים עליו.">
 <meta name="robots" content="index,follow">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/">
 <meta property="og:title" content="הקובץ מהמצלמה לא נפתח? בדרך כלל הצילומים עדיין שם">
 <meta property="og:description" content="מדריך קצר להקלטה שנקטעה באמצע — Sony RSV, DJI, כל MP4 בלי אינדקס. מה לא לעשות, איך משחזרים, ואיך בודקים.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230f6b73%27/%3E%3Cpath d=%27M8 11h16v10H8z%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%272.5%27/%3E%3Cpath d=%2712 21l4-6 4 6%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%272.5%27/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/assistant-hebrew-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/assistant-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/assistant-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/assistant.css">
 <style>
   :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
@@ -58,6 +62,7 @@
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
   .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
   .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
@@ -167,7 +172,7 @@
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">אם נתקעתם</h2>
 <p>אני אביחי, צלם ועורך וידאו, מצלם על Sony FX3. שחזרתי כבר כמה קבצי RSV, כולל אחד שלי — הקלטה של כמעט שעתיים שחזרה שלמה. אם הקובץ גדול, אם גם הריצה השנייה יצאה מקרטעת, או שפשוט אין לכם ראש לזה עכשיו — תשלחו לי לינק לקובץ ולקליפ התקין. אני בודק קודם אם החומר בכלל נמצא בקובץ ואומר לכם מה המצב — <strong>הבדיקה הזאת בחינם</strong>, ולא משלמים כלום לפני שיודעים שיש מה להציל. ואם בסוף לא הצלחתי, לא שילמתם.</p>
-<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&transparentBackground=1" title="טופס פנייה" width="100%" height="640" frameborder="0" marginheight="0" marginwidth="0" loading="lazy"></iframe></div>
+<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&transparentBackground=1" title="טופס פנייה" class="tally" loading="lazy"></iframe></div>
 <p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
 </section>
 
