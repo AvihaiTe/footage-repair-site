@@ -28,9 +28,10 @@
   .hero .tag{display:inline-block;background:var(--accent-soft);color:#0b5058;font-weight:700;font-size:.875rem;padding:4px 12px;border-radius:20px;margin-bottom:16px}
   h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
   .lead{font-size:1.3125rem;margin:0;max-width:760px}
-  .kw{color:var(--muted);font-size:.875rem;font-family:Consolas,monospace;margin-top:18px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
   main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
   section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
   h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
   h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
   p{margin:10px 0}
@@ -45,11 +46,13 @@
   tr:last-child td{border-bottom:none}
   td:first-child{width:46%}
   .steps li{margin:12px 0}
-  .steps li strong{color:#0b5058}
+  .steps li strong{color:#0b5058;font-weight:600}
   .contact{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:20px}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
   a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
   .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
   .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
@@ -76,7 +79,7 @@
 <span class="tag">A short guide for shooters</span>
 <h1>Camera died mid-recording? The footage is usually still there.</h1>
 <p class="lead">The camera shut off, the battery died, you pulled the card a second too early — and now there's a file no player will open. On Sony it shows up as an <strong>RSV</strong> file; on DJI it's an MP4 that says <strong>moov atom not found</strong>. It happens to everyone, and most of the time it can be saved. Here's what to know before you do anything.</p>
-<p class="kw" aria-label="Keywords">Sony RSV · moov atom not found · FX3 · FX30 · FX6 · A7 · DJI Osmo · Mavic · GoPro</p>
+<p class="kw">Covers Sony RSV files (FX3, FX30, FX6, A7) and the "moov atom not found" error on DJI and other cameras (Osmo, Mavic, GoPro and more).</p>
 </div></header>
 
 <main id="main">
@@ -93,8 +96,9 @@
 <li><strong>Don't format the card.</strong></li>
 <li><strong>Don't keep shooting on it.</strong> Whatever gets overwritten is gone.</li>
 <li><strong>Don't run a repair tool on the original file.</strong> Copy it first, work on the copy.</li>
-<li><strong>If the file reached you by transfer (WeTransfer, Drive) — check it arrived complete.</strong> A transfer that stalled halfway leaves a file that looks fine and is half empty inside, and no software repairs that.</li>
+<li><strong>If the file reached you by transfer (WeTransfer, Drive) — check it arrived complete.</strong></li>
 </ul>
+<p>A transfer that stalled halfway leaves a file that looks fine and is half empty inside, and no software repairs that.</p>
 </div>
 </section>
 
