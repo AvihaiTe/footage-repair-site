@@ -7,19 +7,20 @@
 <meta name="referrer" content="no-referrer">
 <title>המצלמה נכבתה באמצע ההקלטה והקובץ לא נפתח? מה עושים עם קובץ RSV או moov atom not found</title>
 <meta name="description" content="קובץ RSV מסוני, קובץ DJI עם moov atom not found, כל הקלטה שהמצלמה לא סיימה לכתוב. מה קרה, מה לא לעשות, איך משחזרים לבד עם תוכנה חינמית, למה קובץ 'מתוקן' יוצא מקרטע, ואיך בודקים אותו לפני שסומכים עליו.">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="noindex,nofollow">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/">
 <meta property="og:title" content="הקובץ מהמצלמה לא נפתח? בדרך כלל הצילומים עדיין שם">
 <meta property="og:description" content="מדריך קצר להקלטה שנקטעה באמצע — Sony RSV, DJI, כל MP4 בלי אינדקס. מה לא לעשות, איך משחזרים, ואיך בודקים.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="fonts/assistant.css">
+<link rel="stylesheet" href="fonts/frl.css">
 <style>
   :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:1.1875rem;line-height:1.8}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Frank Ruhl Libre","David",serif;font-size:1.25rem;line-height:1.75}
   .skip{position:absolute;right:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
   .skip:focus{right:8px}
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
@@ -60,6 +61,7 @@
   footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
   @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
   @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+  h1,h2,.tag,.cta,.btn,th,nav.lang,.kw{font-family:Assistant,"Segoe UI",Arial,sans-serif}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -76,7 +78,7 @@
 
 <header class="hero"><div class="in">
 <nav class="lang" aria-label="שפה"><a href="en/" lang="en" hreflang="en">English</a></nav>
-<span class="tag">מדריך קצר לצלמים</span>
+<span class="tag">דוגמת גופן — Frank Ruhl Libre לטקסט, Assistant לכותרות</span>
 <h1>הקובץ מהמצלמה לא נפתח? בדרך כלל הצילומים עדיין שם.</h1>
 <p class="lead">המצלמה נכבתה באמצע, נגמרה הסוללה, שלפתם את הכרטיס שנייה מוקדם מדי — ועכשיו יש קובץ שאף נגן לא מסכים לפתוח. בסוני זה נראה כמו קובץ <strong>RSV</strong>, ב-DJI זה MP4 עם השגיאה <strong>moov atom not found</strong>. קורה לכולם, וברוב המקרים אפשר להציל את זה. הנה מה שכדאי לדעת לפני שעושים משהו.</p>
 <p class="kw">עובד על קובץ RSV מסוני (FX3, FX30, FX6, A7) ועל שגיאת moov atom not found במצלמות DJI ואחרות (Osmo, Mavic, GoPro ועוד).</p>
