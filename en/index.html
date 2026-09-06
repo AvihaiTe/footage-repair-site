@@ -23,13 +23,13 @@
   .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
   .skip:focus{left:8px}
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
-  .hero .in{max-width:760px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
   nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
   .hero .tag{display:inline-block;background:var(--accent-soft);color:#0b5058;font-weight:700;font-size:.875rem;padding:4px 12px;border-radius:20px;margin-bottom:16px}
   h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
-  .lead{font-size:1.3125rem;margin:0;max-width:640px}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
   .kw{color:var(--muted);font-size:.875rem;font-family:Consolas,monospace;margin-top:18px}
-  main{max-width:760px;margin:0 auto;padding:16px 24px 40px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
   section{margin:44px 0}
   h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
   h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
@@ -51,11 +51,12 @@
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
   a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
-  .legal{max-width:760px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
   .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
   .legal h2::before{height:16px;top:6px}
-  footer{max-width:760px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
   @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
