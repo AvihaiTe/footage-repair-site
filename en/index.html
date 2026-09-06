@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camera died mid-recording and the file won't open? What to do with a Sony RSV file or "moov atom not found"</title>
+<meta name="description" content="A Sony .RSV file, a DJI clip that says moov atom not found, any recording the camera never finished writing. What happened, what not to do, how to repair it yourself with a free tool, why a 'repaired' file comes out jittery, and how to check it before you trust it.">
+<meta name="robots" content="index,follow">
+<link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/">
+<link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/">
+<meta property="og:title" content="Camera died mid-recording? The footage is usually still there">
+<meta property="og:description" content="A short guide to an interrupted recording — Sony RSV, DJI, any MP4 without its index. What not to do, how to repair it, how to check it.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap">
+<style>
+  :root{--ink:#1c1c1c;--muted:#666;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI",Arial,sans-serif;font-size:19px;line-height:1.75}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:760px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  .lang{position:absolute;top:22px;right:24px;font-size:15px}
+  .hero .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+  h1{font-size:38px;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:21px;margin:0;max-width:640px}
+  .kw{color:var(--muted);font-size:14px;font-family:Consolas,monospace;margin-top:18px}
+  main{max-width:760px;margin:0 auto;padding:16px 24px 80px}
+  section{margin:44px 0}
+  h2{font-size:24px;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
+  h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-left:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-left:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:17px;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:var(--accent)}
+  .contact{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-top:20px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:18px;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  .cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  footer{max-width:760px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:14px}
+  a{color:var(--accent)}
+  @media (max-width:600px){h1{font-size:30px}.lead{font-size:19px}body{font-size:18px}td:first-child{width:auto}.lang{position:static;display:block;margin-bottom:12px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"My camera shut off mid-recording and the file won't open. Is the footage gone?","acceptedAnswer":{"@type":"Answer","text":"Usually not. The picture and sound were written to the card, but the 'map' a player needs to find the frames is written last, when you press stop. Without the map no player opens the file, but the footage itself is there."}},
+{"@type":"Question","name":"What is a Sony RSV file?","acceptedAnswer":{"@type":"Answer","text":"The file Sony cameras (FX3, FX30, FX6, A7 series) leave behind when a recording was cut off before the camera finished writing it. The footage is inside, without the map. Renaming it to .mp4 doesn't add the map, so it usually does nothing."}},
+{"@type":"Question","name":"How do I repair an RSV file myself?","acceptedAnswer":{"@type":"Answer","text":"With untrunc, a free tool with a simple Windows interface. You need a healthy sample clip from the same camera at the same settings. After the repair, check the whole file: duration, scrub to several points, lip sync."}},
+{"@type":"Question","name":"I ran a repair tool and the file came out jittery or with the audio drifting. Why?","acceptedAnswer":{"@type":"Answer","text":"The tool builds a new map from the sample clip you give it. If the sample doesn't match exactly (resolution, frames per second, recording quality), the map comes out slightly wrong. A player hides that; an export or an editing app doesn't. The fix is a better-matched sample clip and another pass, not a different program."}},
+{"@type":"Question","name":"What should I not do with a corrupted camera file?","acceptedAnswer":{"@type":"Answer","text":"Don't format the card, don't keep shooting on it, don't run a repair tool on the original file (work on a copy), and if the file came to you by transfer, check it arrived complete."}}
+]}
+</script>
+</head>
+<body>
+
+<div class="hero"><div class="in">
+<a class="lang" href="../" lang="he">עברית</a>
+<span class="tag">A short guide for shooters</span>
+<h1>Camera died mid-recording? The footage is usually still there.</h1>
+<p class="lead">The camera shut off, the battery died, you pulled the card a second too early — and now there's a file no player will open. On Sony it shows up as an <strong>RSV</strong> file; on DJI it's an MP4 that says <strong>moov atom not found</strong>. It happens to everyone, and most of the time it can be saved. Here's what to know before you do anything.</p>
+<p class="kw">Sony RSV · moov atom not found · FX3 · FX30 · FX6 · A7 · DJI Osmo · Mavic · GoPro</p>
+</div></div>
+
+<main>
+
+<section>
+<h2>What actually happened</h2>
+<p>The camera writes picture and sound to the card the whole time. But there's one more small part of the file — think of it as a <strong>map</strong> that tells a player where every frame sits — and the camera writes that map only at the end, when you press stop. If the power went before that, you're left with all the footage and no map, and no player knows where to start. That's why renaming the file to .mp4 doesn't help: it still has no map.</p>
+</section>
+
+<section>
+<h2>Before you do anything</h2>
+<div class="warn">
+<ul>
+<li><strong>Don't format the card.</strong></li>
+<li><strong>Don't keep shooting on it.</strong> Whatever gets overwritten is gone.</li>
+<li><strong>Don't run a repair tool on the original file.</strong> Copy it first, work on the copy.</li>
+<li><strong>If the file reached you by transfer (WeTransfer, Drive) — check it arrived complete.</strong> A transfer that stalled halfway leaves a file that looks fine and is half empty inside, and no software repairs that.</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>Which case is yours</h2>
+<table>
+<tr><th>What happened</th><th>What to do</th></tr>
+<tr><td>The recording was cut off. <strong>The file exists, but won't open.</strong></td><td>Build it a new map using a healthy clip from the same camera. You can do it yourself — explained below.</td></tr>
+<tr><td>You deleted files or formatted the card. There's no file at all.</td><td>That's a different job: recovering from the card. Software like SanDisk's RescuePRO, and don't touch the card in the meantime.</td></tr>
+<tr><td>The card isn't detected at all, got wet, or is physically broken.</td><td>A recovery lab. Software won't help here.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>How to repair it yourself</h2>
+<ol class="steps">
+<li><strong>A sample clip.</strong> You need a healthy recording from the same camera, at exactly the same settings: same resolution, same frames per second (25, 50, 100…), same recording quality. Length doesn't matter — put a card in, lens cap on, record 30 seconds.</li>
+<li><strong>A free tool called untrunc.</strong> <a href="https://github.com/anthwlock/untrunc/releases/latest">Download it here</a> (Windows, with a simple interface). Pick the sample clip, pick the broken file, run it. It's exactly what the paid tools do. Sometimes it takes a second run.</li>
+<li><strong>Then check.</strong> This is the part most people skip, and it's why they only find the problem once they sit down to edit.</li>
+</ol>
+</section>
+
+<section>
+<h2>Why a "repaired" file comes out jittery</h2>
+<p>It isn't random. All of these tools build the new map from the sample clip. If the sample doesn't match exactly, the map comes out slightly off. When you scrub in a player it looks fine — and then when you export, or open it in your editing app, the picture jumps, green blocks appear, or the sound drifts toward the end.</p>
+<p><strong>So before you trust a repaired file:</strong> check its duration matches what you actually shot. Scrub to five or six points across the file, especially near the end, and watch a few seconds at each. And make sure lips still match sound. If anything's off — a better-matched sample clip and another pass. Not a different program.</p>
+</section>
+
+<section>
+<h2>If you're stuck</h2>
+<div class="contact">
+<p>I'm Avihai, a videographer and editor shooting on a Sony FX3. I've repaired a number of RSV files, including one of my own — a recording of nearly two hours that came back whole. If the file is big, if the second run also came out jittery, or you just don't have the head for this right now — send me a link to the file and to the healthy clip. I first check whether the footage is actually in the file and tell you where you stand — <strong>that check is free</strong>, and you pay nothing before you know there's something to save. And if in the end I couldn't do it, you don't pay.</p>
+<a class="cta" href="mailto:avihaiteram@gmail.com?subject=Corrupted%20camera%20file">Email me</a>
+</div>
+</section>
+
+</main>
+<footer>Avihai Teram · Sony RSV · DJI · moov atom not found · <a href="../" lang="he">עברית</a></footer>
+</body>
+</html>
