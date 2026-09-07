@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
+<meta name="referrer" content="no-referrer">
+<title>untrunc didn't work? What to check before giving up</title>
+<meta name="description" content="Ran untrunc and the file still won't open, came out jittery, silent or far too short? Almost always the cause is a sample clip that doesn't match, not the program. Five checks, in order.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/en/untrunc-not-working/">
+<link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/untrunc-not-working/">
+<link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/untrunc-not-working/">
+<link rel="alternate" hreflang="x-default" href="https://avihaite.github.io/footage-repair-site/en/untrunc-not-working/">
+<meta property="og:url" content="https://avihaite.github.io/footage-repair-site/en/untrunc-not-working/">
+<meta property="og:image" content="https://avihaite.github.io/footage-repair-site/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="untrunc didn't work? What to check before giving up">
+<meta property="og:description" content="Ran untrunc and the file still won't open, came out jittery, silent or far too short? Almost always the cause is a sample clip that doesn't match, not the program. Five checks, in order.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="../../fonts/assistant.css">
+<style>
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI",Arial,sans-serif;font-size:1.1875rem;line-height:1.75}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{left:8px}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;margin-bottom:10px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
+  section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,main section>table,main section>h2,.legal>p{max-width:700px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
+  h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-left:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-left:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:left;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
+  th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;max-width:600px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .consent{color:var(--muted);font-size:.95rem;margin:18px 0 -10px;max-width:600px}
+  figure{margin:18px 0 6px;max-width:760px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  figure img[src$="windows-cant-play-0xc00d36e5.png"]{max-width:560px}
+  figure img[src$="moov-atom-ffprobe.png"]{max-width:550px}
+  figure img[src$="untrunc-gui.png"]{max-width:600px}
+  figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
+  .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
+  .brief h2{margin-bottom:6px}
+  .brief ul{margin:4px 0}
+  .brief li{margin:8px 0}
+  .steps em{font-style:normal;color:#0b5058;font-weight:600}
+  .about{border-top:1px solid var(--line);padding-top:18px}
+  @media print{.skip,nav.lang,.formcard,.alt{display:none}main,.legal,footer{max-width:none}}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Would a paid program do it better?", "acceptedAnswer": {"@type": "Answer", "text": "No. They all work the same way: build a new map from a sample clip. If untrunc failed because of a mismatched clip, they fail for the same reason."}}, {"@type": "Question", "name": "The video opens, but the sound only drifts at the end. Good enough?", "acceptedAnswer": {"@type": "Answer", "text": "For editing, no. Sound drifting at the end means the map is slightly off along the whole file. A closer sample clip fixes that, not re-exporting."}}, {"@type": "Question", "name": "How do you know the footage is even in the file?", "acceptedAnswer": {"@type": "Answer", "text": "By checking how much of the file is zeros. That's what I do in the free check, and it takes a minute. A file that's mostly zeros can't be recovered by any program."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero"><div class="in">
+<nav class="lang" aria-label="Language"><a href="../../untrunc-not-working/" lang="he" hreflang="he">עברית</a></nav>
+<p class="tag"><a href="../">The full guide: what happened, what not to do, the three cases</a></p>
+<h1>untrunc didn't work? What to check before giving up</h1>
+<p class="lead">You downloaded the program, picked a sample clip, ran it, and got: a file that won't open, a video that jumps, sound that drifts, or a two-minute file instead of an hour. It happens a lot, and it's almost never the program failing. There's a short list of things to check, in order, and only after it can you say the file is really lost.</p>
+<p class="kw">Applies to any file rebuilt with untrunc, and to the paid programs that work the same way: Sony RSV, DJI, GoPro, MP4 and MOV.</p>
+</div></header>
+
+<main id="main">
+
+<figure><img src="../../img/untrunc-gui.png" width="836" height="671" alt="The untrunc program window on Windows: a reference file button with a field for the healthy clip, a truncated file button with a field for the broken file, an empty message area, and a Repair button"><figcaption>This is what the program looks like. reference file: the healthy clip. truncated file: the broken one. Repair: run. That's all of it.</figcaption></figure>
+<section class="brief" aria-labelledby="h-brief">
+<h2 id="h-brief">In short</h2>
+<ul><li><strong>What happened:</strong> the program builds the broken file a new map from the sample clip. If the sample differs from the file in one small detail (frame rate, compression type, audio setting), the map comes out skewed, and the result jumps or is missing pieces.</li><li><strong>What not to do right now:</strong> don't install yet another program, don't try to “convert” the result, and don't delete the original file or your attempts.</li><li><strong>What to do:</strong> go through the five checks below, in order. Most of the time the fix is a different sample clip.</li></ul>
+</section>
+<section aria-labelledby="h-1">
+<h2 id="h-1">What did you get? That tells you what to check</h2>
+<ul><li><strong>The video jumps, shows blocks, or the sound drifts toward the end:</strong> the sample clip doesn't match closely enough. Checks 2 and 3.</li><li><strong>No sound at all:</strong> the audio setting on the sample clip is different (an external mic versus the built-in one, say). Check 3.</li><li><strong>The output is far shorter than what you shot:</strong> either the footage really isn't there (check 1), or the program stopped partway (check 4).</li><li><strong>The program crashed, or nothing came out:</strong> checks 1 and 5.</li><li><strong>The file opens and looks great:</strong> check all of it before trusting it, the end included. The problems hide in the middle.</li></ul>
+</section>
+<section aria-labelledby="h-2">
+<h2 id="h-2">Five checks, in order</h2>
+<ol class="steps"><li><strong>Is the file complete?</strong> Compare its size with the original on the card. A file that came by transfer (WeTransfer, Drive, a download) and stopped halfway looks fine and is empty inside, and no program builds that. <em>How you know:</em> exactly the same size as on the card. If you have no access to the card, send it to me and I'll check whether the footage is inside, free.</li><li><strong>Does the sample clip match exactly?</strong> Same camera, same resolution, same frames per second, same compression type (H.264 or HEVC), same recording quality. Safest: the clip shot right before or after the broken one, with no setting changed. On DJI and GoPro, make sure the camera didn't switch between H.264 and HEVC during the day.</li><li><strong>Does the sound match too?</strong> Same audio setting: built-in or external mic, same number of channels, same quality. A clip shot with a different mic can give a perfect video with no sound.</li><li><strong>Did you run it on a copy, from the computer's own drive?</strong> Work on a copy on the computer, not straight off the card and not from a slow external drive. A big file takes time: for an hour of footage the program can work for long minutes without showing progress. Wait.</li><li><strong>Sony: did you tick the RSV option?</strong> The program's settings have an option for .RSV files, and without it the file isn't recognised at all. And if nothing comes out for any file, download the <a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">current version</a> again.</li></ol>
+</section>
+<section aria-labelledby="h-3">
+<h2 id="h-3">When none of that helped</h2>
+<p>Try another sample clip, and another. It sounds odd, but it's the fix in most cases: one clip isn't similar enough, another is. If after three different clips the result still jumps, or the file won't open at all, that's the time to send it: my check is free, and I'll tell you whether the footage exists and whether it's worth going on.</p>
+</section>
+<section aria-labelledby="h-faq">
+<h2 id="h-faq">Short answers</h2>
+<ul><li><strong>Would a paid program do it better?</strong> No. They all work the same way: build a new map from a sample clip. If untrunc failed because of a mismatched clip, they fail for the same reason.</li><li><strong>The video opens, but the sound only drifts at the end. Good enough?</strong> For editing, no. Sound drifting at the end means the map is slightly off along the whole file. A closer sample clip fixes that, not re-exporting.</li><li><strong>How do you know the footage is even in the file?</strong> By checking how much of the file is zeros. That's what I do in the free check, and it takes a minute. A file that's mostly zeros can't be recovered by any program.</li></ul>
+</section>
+<section aria-labelledby="h-stuck">
+<h2 id="h-stuck">If you're stuck</h2>
+<p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>. If there's something to recover and you want to go ahead, I quote a price before starting and never charge without your approval. You can cancel any time before the work begins, and if I couldn't recover it, you don't pay.</p>
+<p class="consent">By sending the form you agree that these details are used only to reply to you. <a href="../#h-priv">Privacy</a>.</p><div class="formcard"><iframe src="https://tally.so/embed/81BKAl?alignLeft=1&amp;transparentBackground=1" title="Contact form" class="tally"></iframe></div><p class="alt">Prefer email? avihaiteram@gmail.com</p>
+</section>
+<section class="about" aria-labelledby="h-about">
+<h2 id="h-about">Who I am</h2>
+<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. I'm a registered Israeli business (עוסק מורשה, Avihai Teram, business no. 206824625); the first check is always free, and if I couldn't recover it, you don't pay.</p>
+</section>
+<section aria-labelledby="h-more">
+<h2 id="h-more">Other messages that mean the same thing</h2>
+<ul><li><a href="../rsv-file/">Sony .RSV file won't open</a></li><li><a href="../moov-atom-not-found/">“moov atom not found”</a></li><li><a href="../0xc00d36c4/">0xc00d36c4 “This file isn't playable”</a></li><li><a href="../premiere-file-importer-inconsistency/">Premiere: “inconsistency in the file structure”</a></li><li><a href="../vlc-cant-recognize-format/">VLC “can't recognize the input's format”</a></li><li><a href="../dji-gopro-video-wont-open/">DJI or GoPro video won't open</a></li><li><a href="../">The full guide: what happened, what not to do, the three cases</a></li></ul>
+</section>
+
+</main>
+
+<footer>Avihai Teram · Last checked: September 2026 · <a href="../#h-a11y">Accessibility statement and privacy</a> · <a href="../../untrunc-not-working/" lang="he" hreflang="he">עברית</a></footer>
+</body>
+</html>
