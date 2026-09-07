@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
 <meta name="referrer" content="no-referrer">
-<title>“moov atom not found”: what the error means and how to fix it</title>
-<meta name="description" content="moov atom not found means the video has no index: the recording was cut off, or the transfer stopped halfway. How to tell which, and what really repairs it.">
+<title>“moov atom not found”: what it means and how to fix it</title>
+<meta name="description" content="moov atom not found means the video file is missing its “map”: the recording was cut off, or the transfer stopped halfway. How to tell which, and what really repairs the file, in plain words.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://avihaite.github.io/footage-repair-site/en/moov-atom-not-found/">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/moov-atom-not-found/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/moov-atom-not-found/">
-<meta property="og:title" content="“moov atom not found”: what it means and what to do">
-<meta property="og:description" content="moov atom not found means the video has no index: the recording was cut off, or the transfer stopped halfway. How to tell which, and what really repairs it.">
+<meta property="og:title" content="Got “moov atom not found”? The video is probably not lost">
+<meta property="og:description" content="moov atom not found means the video file is missing its “map”: the recording was cut off, or the transfer stopped halfway. How to tell which, and what really repairs the file, in plain words.">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
 
@@ -64,6 +64,15 @@
   .tally{width:100%;height:640px;border:0;display:block}
   .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  figure{margin:18px 0 6px;max-width:760px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+  figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
+  .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
+  .brief h2{margin-bottom:6px}
+  .brief ul{margin:4px 0}
+  .brief li{margin:8px 0}
+  .steps em{font-style:normal;color:#0b5058;font-weight:600}
+  .about{border-top:1px solid var(--line);padding-top:18px}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
@@ -78,7 +87,7 @@
   @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can ffmpeg fix “moov atom not found”?", "acceptedAnswer": {"@type": "Answer", "text": "Not when the moov was never written. ffmpeg needs the index to read the file at all, and -movflags faststart only moves an index that already exists. You need a tool that rebuilds the index from a sample clip."}}, {"@type": "Question", "name": "The file is the right size but still won't open.", "acceptedAnswer": {"@type": "Answer", "text": "Then the recording was interrupted and the footage is there. Rebuild the index from a sample clip from the same camera at the same settings."}}, {"@type": "Question", "name": "The file came from a download or WeTransfer.", "acceptedAnswer": {"@type": "Answer", "text": "Check its size against the original first. If it's smaller, the transfer failed and no repair will help; ask for the file again."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can ffmpeg fix it?", "acceptedAnswer": {"@type": "Answer", "text": "Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc."}}, {"@type": "Question", "name": "The file is the right size and still won't open?", "acceptedAnswer": {"@type": "Answer", "text": "Then the recording was cut off and the footage is inside. Go on to the steps."}}, {"@type": "Question", "name": "I have no technical background. Can I do this myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The program has a normal window: you pick two files and press a button. What needs attention is the size check at the start and the video check at the end."}}]}
 </script>
 </head>
 <body>
@@ -87,37 +96,46 @@
 <header class="hero"><div class="in">
 <nav class="lang" aria-label="Language"><a href="../../moov-atom-not-found/" lang="he" hreflang="he">עברית</a></nav>
 <p class="tag"><a href="../">The full guide: what happened, what not to do, the three cases</a></p>
-<h1>“moov atom not found”: what it means and what to do</h1>
-<p class="lead">You'll see it from ffmpeg, in VLC's log, in HandBrake or in an editing app when you try to open an MP4 or MOV that has no index. It's common with DJI (Osmo, Mavic, Pocket), GoPro, dashcams and phones, and it always means one of two things.</p>
-<p class="kw">The full line usually reads: [mov,mp4,m4a,3gp,3g2,mj2] moov atom not found.</p>
+<h1>Got “moov atom not found”? The video is probably not lost</h1>
+<p class="lead">This message pops up when a program tries to open an MP4 or MOV that is missing its “map”. It happens after the camera shut off mid-recording (DJI, GoPro, dashcams, phones), or when a transfer of the file stopped halfway. The first can be repaired. The second can't, so tell them apart first.</p>
+<p class="kw">The full line usually reads: [mov,mp4,m4a,3gp,3g2,mj2] moov atom not found. You'll see it in ffmpeg, in VLC's log, in HandBrake or in an editing app.</p>
 </div></header>
 
 <main id="main">
 
+<figure><img src="../../img/moov-atom-ffprobe.png" width="1100" height="215" alt="A Windows terminal running ffprobe on C2000.RSV: the lines moov atom not found and Invalid data found when processing input, in red"><figcaption>The message as ffprobe prints it for a recording that was cut off before the camera finished it.</figcaption></figure>
+<section class="brief" aria-labelledby="h-brief">
+<h2 id="h-brief">In short</h2>
+<ul><li><strong>What happened:</strong> the file is missing a small part called moov, the “map” that tells a player how long the video is and where each frame sits. The camera writes it at the end of the recording, and if it shut off before, it was never written.</li><li><strong>What not to do right now:</strong> don't format the card, don't keep shooting on it, and don't try to “convert” the file. A converter can't read a file with no map.</li><li><strong>What to do:</strong> first check the file arrived complete. If it did, build it a new map with a healthy clip from the same camera and a free program. Steps below.</li></ul>
+</section>
 <section aria-labelledby="h-1">
-<h2 id="h-1">What the moov atom is</h2>
-<p>Every MP4 and MOV has a small block called moov: the map that tells a player how long the file is and where every frame sits. Cameras write it last, when the recording ends cleanly. No moov, no map, and the player refuses the file even though the picture and sound may be sitting right there.</p>
+<h2 id="h-1">First: is the file complete?</h2>
+<p>The same message shows up in two opposite situations, so this is the first check.</p><ul><li><strong>The file came straight off the card:</strong> the recording was cut off, the footage is inside, and it can be repaired. Go on to the steps.</li><li><strong>The file came by download, WeTransfer, Drive sync or a copy:</strong> compare its size with the original. If it's smaller, or stops at exactly a round number of megabytes, the transfer broke off and the end of the file is empty. No program builds footage that never arrived. Ask for the file again. A real example: a file cut at exactly 1050 MB, 88 percent of it empty.</li></ul>
 </section>
 <section aria-labelledby="h-2">
-<h2 id="h-2">Two very different reasons you see it</h2>
-<p>Same message, opposite situations, and the first thing to do is find out which one you have.</p><ul><li><strong>The recording was cut off.</strong> The camera shut down, the battery died, the card was pulled, the app crashed. The file is full size and the data is inside; it just never got its map. This is repairable.</li><li><strong>The transfer stopped halfway.</strong> A download, WeTransfer, Drive sync or copy that didn't finish. The file looks like a video but the end of it is empty, and no repair tool can rebuild data that never arrived. The fix is to get the file again from wherever it came from.</li></ul><p>How to tell: compare the size with the original on the card or the sender's copy. A file that's much smaller than it should be, or that stops at a suspiciously round number of megabytes, came through a broken transfer. I once got one cut at exactly 1050 MB that was 88 percent empty inside.</p>
+<h2 id="h-2">What to do, step by step</h2>
+<ol class="steps"><li><strong>Copy everything to the computer.</strong> The broken file, and while you're at it a healthy clip from the same card. From now on work only on the copies. The card stays aside.</li><li><strong>Prepare a “sample clip”.</strong> A healthy recording from the same camera at exactly the settings the broken file was shot with: same resolution, same frames per second, same quality setting on the camera, and the same compression type (H.264 or HEVC; DJI and GoPro can switch between the two in their settings). If you're not sure, a clip shot the same day without changing settings fits. The clip you copied from the card usually fits. If there isn't one, put a card in the camera, lens cap on, and record 30 seconds. <em>How you know it's right:</em> both files were shot the same day, with the same settings.</li><li><strong>Run a free program called untrunc.</strong> It takes the map from the healthy clip and builds a new one for the broken file. <a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">Download it here</a> (Windows, a normal window, nothing to type). It handles DJI, GoPro and most other brands. Pick the sample clip, pick the broken file, and run. If the file that comes out won't open, run it once more, that happens. <em>How you know it worked:</em> a new MP4 appears, and it opens in a player.</li><li><strong>Check the whole file, not just the start.</strong> The length should match what you shot. Scrub to five or six points along the video, especially near the end. At each one stop, play a few seconds, and check the picture moves smoothly and the lips match the speech. <em>If the picture jumps or the sound drifts:</em> the sample clip doesn't match closely enough. Find a closer match and run again. Don't switch programs.</li></ol>
 </section>
 <section aria-labelledby="h-3">
-<h2 id="h-3">What doesn't work</h2>
-<ul><li>Renaming the file or changing the extension.</li><li>ffmpeg with <code>-c copy</code> or <code>-movflags faststart</code>. Both need an existing moov to read the file at all; they can move an index, not invent one.</li><li>Converters and players that “repair on the fly”. Same problem: they can't read what they can't open.</li></ul>
+<h2 id="h-3">Why it happened</h2>
+<p>A video file has two parts: the footage itself, which the camera writes the whole time, and a small map called moov, which tells a player how long the file is and where each frame sits. The camera writes the map last, only when the recording ends cleanly. If it shut off before, there is footage with no map, and the player refuses to open it.</p>
 </section>
 <section aria-labelledby="h-4">
-<h2 id="h-4">What works</h2>
-<ol class="steps"><li><strong>Don't format the card, don't keep shooting on it.</strong> Copy the file to your computer and work on the copy.</li><li><strong>A sample clip.</strong> A healthy recording from the same camera at exactly the same settings: same resolution, same frame rate, same recording quality, and the same codec (H.264 or HEVC; DJI and GoPro can switch between the two). Length doesn't matter. If you don't have one, put a card in, lens cap on, record 30 seconds.</li><li><strong>untrunc.</strong> A free tool that rebuilds the index from your sample clip (<a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">download it here</a>, Windows, with a simple interface). It handles DJI, GoPro and most other brands. Pick the sample clip, pick the broken file, run it. It's the same method the paid tools use. Sometimes it takes a second run.</li><li><strong>Then check the whole file.</strong> The duration should match what you shot. Scrub to five or six points across it, especially near the end, and watch a few seconds at each. Lips should still match sound. If anything's off, the answer is a better-matched sample clip and another pass, not a different program.</li></ol>
+<h2 id="h-4">What won't help</h2>
+<ul><li>Renaming the file or changing the extension.</li><li>Converters, players that “repair on the fly”, and ffmpeg commands like <code>-c copy</code> or <code>-movflags faststart</code>. All of them need an existing map to read the file at all. They can move a map, not build one.</li></ul>
 </section>
 <section aria-labelledby="h-faq">
 <h2 id="h-faq">Short answers</h2>
-<ul><li><strong>Can ffmpeg fix “moov atom not found”?</strong> Not when the moov was never written. ffmpeg needs the index to read the file at all, and -movflags faststart only moves an index that already exists. You need a tool that rebuilds the index from a sample clip.</li><li><strong>The file is the right size but still won't open.</strong> Then the recording was interrupted and the footage is there. Rebuild the index from a sample clip from the same camera at the same settings.</li><li><strong>The file came from a download or WeTransfer.</strong> Check its size against the original first. If it's smaller, the transfer failed and no repair will help; ask for the file again.</li></ul>
+<ul><li><strong>Can ffmpeg fix it?</strong> Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc.</li><li><strong>The file is the right size and still won't open?</strong> Then the recording was cut off and the footage is inside. Go on to the steps.</li><li><strong>I have no technical background. Can I do this myself?</strong> Yes. The program has a normal window: you pick two files and press a button. What needs attention is the size check at the start and the video check at the end.</li></ul>
 </section>
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">If you're stuck</h2>
 <p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>, and if I can't recover it, you don't pay. I'm Avihai, a videographer shooting on a Sony FX3; the longest file I've rebuilt so far was nearly two hours.</p>
 <div class="formcard"><iframe src="https://tally.so/embed/81BKAl?alignLeft=1&amp;transparentBackground=1" title="Contact form" class="tally"></iframe></div><p class="alt">Prefer email? avihaiteram@gmail.com</p>
+</section>
+<section class="about" aria-labelledby="h-about">
+<h2 id="h-about">Who I am</h2>
+<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. The first check is always free, and if I couldn't recover it, you don't pay.</p>
 </section>
 <section aria-labelledby="h-more">
 <h2 id="h-more">Other messages that mean the same thing</h2>

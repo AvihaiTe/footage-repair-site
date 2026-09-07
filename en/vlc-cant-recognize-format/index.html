@@ -6,13 +6,13 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
 <meta name="referrer" content="no-referrer">
 <title>VLC “can't recognize the input's format”: what it means</title>
-<meta name="description" content="When VLC can't recognize a camera MP4 or MOV, the file is missing its index: the recording was cut off or the transfer stopped. What to check, how to rebuild.">
+<meta name="description" content="When VLC can't recognize a camera MP4 or MOV, the file is missing its “map”: the recording was cut off, or the transfer stopped halfway. What to check and how to rebuild the file, in plain words.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://avihaite.github.io/footage-repair-site/en/vlc-cant-recognize-format/">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/vlc-cant-recognize-format/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/vlc-cant-recognize-format/">
-<meta property="og:title" content="VLC “can't recognize the input's format”: what it means for a camera file">
-<meta property="og:description" content="When VLC can't recognize a camera MP4 or MOV, the file is missing its index: the recording was cut off or the transfer stopped. What to check, how to rebuild.">
+<meta property="og:title" content="VLC won't open the file? “can't recognize the input's format”">
+<meta property="og:description" content="When VLC can't recognize a camera MP4 or MOV, the file is missing its “map”: the recording was cut off, or the transfer stopped halfway. What to check and how to rebuild the file, in plain words.">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
 
@@ -64,6 +64,15 @@
   .tally{width:100%;height:640px;border:0;display:block}
   .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  figure{margin:18px 0 6px;max-width:760px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+  figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
+  .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
+  .brief h2{margin-bottom:6px}
+  .brief ul{margin:4px 0}
+  .brief li{margin:8px 0}
+  .steps em{font-style:normal;color:#0b5058;font-weight:600}
+  .about{border-top:1px solid var(--line);padding-top:18px}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
@@ -78,7 +87,7 @@
   @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this a codec problem?", "acceptedAnswer": {"@type": "Answer", "text": "No. VLC ships with every codec a camera uses. When VLC can't recognize a camera file, the file's index is missing."}}, {"@type": "Question", "name": "Can VLC repair the file?", "acceptedAnswer": {"@type": "Answer", "text": "No. VLC has a repair option for AVI files only. For MP4 and MOV you need a tool that rebuilds the index from a sample clip, such as untrunc."}}, {"@type": "Question", "name": "The file plays for a bit and then stops.", "acceptedAnswer": {"@type": "Answer", "text": "Different problem: the file has an index but part of the data is missing, usually from an interrupted transfer. Get the file again from the source."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this a codec problem?", "acceptedAnswer": {"@type": "Answer", "text": "No. VLC ships with every codec a camera uses. When VLC can't recognize a camera file, the file's map is missing."}}, {"@type": "Question", "name": "Can VLC repair the file?", "acceptedAnswer": {"@type": "Answer", "text": "No. VLC has a repair option for AVI files only. For MP4 and MOV you need a program that rebuilds the map from a sample clip, such as untrunc."}}, {"@type": "Question", "name": "The file plays for a bit and then stops?", "acceptedAnswer": {"@type": "Answer", "text": "Different problem: the file has a map but part of the footage is missing, usually from an interrupted transfer. Get the file again from the source."}}]}
 </script>
 </head>
 <body>
@@ -87,37 +96,46 @@
 <header class="hero"><div class="in">
 <nav class="lang" aria-label="Language"><a href="../../vlc-cant-recognize-format/" lang="he" hreflang="he">עברית</a></nav>
 <p class="tag"><a href="../">The full guide: what happened, what not to do, the three cases</a></p>
-<h1>VLC “can't recognize the input's format”: what it means for a camera file</h1>
-<p class="lead">The full message is <strong>“VLC can't recognize the input's format: The format of 'file:///…' cannot be detected. Have a look at the log for details.”</strong> VLC plays almost anything, so when it gives up on a file from a camera, the problem isn't a codec. The file has no index.</p>
-<p class="kw">In VLC's log the line underneath is usually “moov atom not found”.</p>
+<h1>VLC won't open the file? “can't recognize the input's format”</h1>
+<p class="lead">VLC plays almost anything. So when it gives up on a camera file and shows this message, the problem isn't the file type: the file is missing its “map”, the part that tells a player where each frame sits. Most of the time it can be rebuilt, and this is how.</p>
+<p class="kw">The full message: “VLC can't recognize the input's format: The format of 'file:///…' cannot be detected. Have a look at the log for details.”</p>
 </div></header>
 
 <main id="main">
 
+
+<section class="brief" aria-labelledby="h-brief">
+<h2 id="h-brief">In short</h2>
+<ul><li><strong>What happened:</strong> the recording was cut off before the camera wrote the map that tells a player where each frame sits, or the file arrived incomplete from a transfer that stopped halfway.</li><li><strong>What not to do right now:</strong> don't format the card, don't keep shooting on it, and don't convert the file. A converter can't read what VLC can't read.</li><li><strong>What to do:</strong> check the size matches the original, then build a new map with a healthy clip and a free program. Steps below.</li></ul>
+</section>
 <section aria-labelledby="h-1">
-<h2 id="h-1">Why VLC fails on this file</h2>
-<p>An MP4 or MOV carries a small index, the map that says how long the file is and where each frame sits. Cameras write it last, at the moment the recording ends cleanly. If the camera shut down, the battery died or the card was pulled first, the map was never written. VLC opens the file, finds no map, and can't even tell what it's looking at. Renaming the file or changing the extension doesn't add the map.</p>
+<h2 id="h-1">First: is the file complete?</h2>
+<p>There are two ways a file ends up without a map, and only one of them can be repaired.</p><ul><li><strong>The file came straight off the card:</strong> the recording was cut off, the footage is inside, go on to the steps.</li><li><strong>The file came by download, WeTransfer, Drive or a copy:</strong> compare its size with the original. Smaller? The transfer broke off, no repair will help, ask for the file again. Full size? Go on to the steps.</li></ul>
 </section>
 <section aria-labelledby="h-2">
-<h2 id="h-2">Check the size before anything else</h2>
-<p>The other way a file ends up without an index is a transfer that stopped halfway: a download, WeTransfer, Drive or a copy that didn't finish. Compare the size with the original on the card or the sender's copy. If it's smaller, no repair will help; get the file again. If it's the full size, the footage is inside and the index can be rebuilt.</p>
+<h2 id="h-2">What to do, step by step</h2>
+<ol class="steps"><li><strong>Copy everything to the computer.</strong> The broken file, and while you're at it a healthy clip from the same card. From now on work only on the copies. The card stays aside.</li><li><strong>Prepare a “sample clip”.</strong> A healthy recording from the same camera at exactly the settings the broken file was shot with: same resolution, same frames per second, same quality setting on the camera. If you're not sure, a clip shot the same day without changing settings fits. The clip you copied from the card usually fits. If there isn't one, put a card in the camera, lens cap on, and record 30 seconds. <em>How you know it's right:</em> both files were shot the same day, with the same settings.</li><li><strong>Run a free program called untrunc.</strong> It takes the map from the healthy clip and builds a new one for the broken file. <a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">Download it here</a> (Windows, a normal window, nothing to type). Pick the sample clip, pick the broken file, and run. If the file that comes out won't open, run it once more, that happens. <em>How you know it worked:</em> a new MP4 appears, and it opens in a player.</li><li><strong>Check the whole file, not just the start.</strong> The length should match what you shot. Scrub to five or six points along the video, especially near the end. At each one stop, play a few seconds, and check the picture moves smoothly and the lips match the speech. <em>If the picture jumps or the sound drifts:</em> the sample clip doesn't match closely enough. Find a closer match and run again. Don't switch programs.</li></ol>
 </section>
 <section aria-labelledby="h-3">
-<h2 id="h-3">How to rebuild the index</h2>
-<ol class="steps"><li><strong>Don't format the card, don't keep shooting on it.</strong> Copy the file to your computer and work on the copy.</li><li><strong>A sample clip.</strong> A healthy recording from the same camera at exactly the same settings: same resolution, same frame rate, same recording quality. Length doesn't matter. If you don't have one, put a card in, lens cap on, record 30 seconds.</li><li><strong>untrunc.</strong> A free tool that rebuilds the index from your sample clip (<a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">download it here</a>, Windows, with a simple interface). Pick the sample clip, pick the broken file, run it. It's the same method the paid tools use. Sometimes it takes a second run.</li><li><strong>Then check the whole file.</strong> The duration should match what you shot. Scrub to five or six points across it, especially near the end, and watch a few seconds at each. Lips should still match sound. If anything's off, the answer is a better-matched sample clip and another pass, not a different program.</li></ol>
+<h2 id="h-3">Why it happened</h2>
+<p>Every MP4 or MOV carries a small map that says how long the video is and where each frame sits. The camera writes it last, only when the recording ends cleanly. If the camera shut down, the battery died or the card was pulled first, the map was never written. VLC opens the file, finds no map, and can't even tell what it's looking at. Renaming the file or changing the extension doesn't add the map.</p>
 </section>
 <section aria-labelledby="h-4">
-<h2 id="h-4">Sony users</h2>
-<p>If the file ends in .RSV rather than .MP4, it's the same situation with a Sony name on it: <a href="../rsv-file/">what an .RSV file is and how to open it</a>.</p>
+<h2 id="h-4">Shooting Sony?</h2>
+<p>If the file ends in .RSV rather than .MP4, it's exactly the same situation with a Sony name on it: <a href="../rsv-file/">what an .RSV file is and how to open it</a>.</p>
 </section>
 <section aria-labelledby="h-faq">
 <h2 id="h-faq">Short answers</h2>
-<ul><li><strong>Is this a codec problem?</strong> No. VLC ships with every codec a camera uses. When VLC can't recognize a camera file, the file's index is missing.</li><li><strong>Can VLC repair the file?</strong> No. VLC has a repair option for AVI files only. For MP4 and MOV you need a tool that rebuilds the index from a sample clip, such as untrunc.</li><li><strong>The file plays for a bit and then stops.</strong> Different problem: the file has an index but part of the data is missing, usually from an interrupted transfer. Get the file again from the source.</li></ul>
+<ul><li><strong>Is this a codec problem?</strong> No. VLC ships with every codec a camera uses. When VLC can't recognize a camera file, the file's map is missing.</li><li><strong>Can VLC repair the file?</strong> No. VLC has a repair option for AVI files only. For MP4 and MOV you need a program that rebuilds the map from a sample clip, such as untrunc.</li><li><strong>The file plays for a bit and then stops?</strong> Different problem: the file has a map but part of the footage is missing, usually from an interrupted transfer. Get the file again from the source.</li></ul>
 </section>
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">If you're stuck</h2>
 <p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>, and if I can't recover it, you don't pay. I'm Avihai, a videographer shooting on a Sony FX3; the longest file I've rebuilt so far was nearly two hours.</p>
 <div class="formcard"><iframe src="https://tally.so/embed/81BKAl?alignLeft=1&amp;transparentBackground=1" title="Contact form" class="tally"></iframe></div><p class="alt">Prefer email? avihaiteram@gmail.com</p>
+</section>
+<section class="about" aria-labelledby="h-about">
+<h2 id="h-about">Who I am</h2>
+<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. The first check is always free, and if I couldn't recover it, you don't pay.</p>
 </section>
 <section aria-labelledby="h-more">
 <h2 id="h-more">Other messages that mean the same thing</h2>
