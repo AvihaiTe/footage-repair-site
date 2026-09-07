@@ -104,7 +104,7 @@
   @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can ffmpeg fix it?", "acceptedAnswer": {"@type": "Answer", "text": "Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc."}}, {"@type": "Question", "name": "The file is the right size and still won't open?", "acceptedAnswer": {"@type": "Answer", "text": "Then the recording was cut off and the footage is inside. Go on to the steps."}}, {"@type": "Question", "name": "I have no technical background. Can I do this myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The program works like any other: open it, pick two files, press a button. Nothing to type. What needs attention is the size check at the start and the video check at the end."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can ffmpeg fix it?", "acceptedAnswer": {"@type": "Answer", "text": "Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc."}}, {"@type": "Question", "name": "The file is the right size and still won't open?", "acceptedAnswer": {"@type": "Answer", "text": "Then the recording was cut off and the footage is inside. Go back to the steps above."}}, {"@type": "Question", "name": "I have no technical background. Can I do this myself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The program works like any other: open it, pick two files, press a button. Nothing to type. What needs attention is the size check at the start and the video check at the end."}}]}
 </script>
 </head>
 <body>
@@ -115,7 +115,7 @@
 <p class="tag"><a href="../">The full guide: what happened, what not to do, the three cases</a></p>
 <h1>Got “moov atom not found”? The video is probably not lost</h1>
 <p class="lead">This message pops up when a program tries to open an MP4 or MOV that is missing its “map”. It happens after the camera shut off mid-recording (DJI, GoPro, dashcams, phones), or when a transfer of the file stopped halfway. The first can be repaired. The second can't, so tell them apart first.</p>
-<p class="kw">The full line usually reads: [mov,mp4,m4a,3gp,3g2,mj2] moov atom not found. You'll see it in ffmpeg, in VLC's log, in HandBrake or in an editing app.</p>
+<p class="kw">This message belongs to ffmpeg. You'll see it if you ran ffmpeg or ffprobe yourself, or in a program built on them: HandBrake, Shotcut, online converters, and VLC's log. The full line usually reads: [mov,mp4,m4a,3gp,3g2,mj2] moov atom not found. A regular player doesn't show it, it simply won't open the file, and that case has its own pages in the list below.</p>
 </div></header>
 
 <main id="main">
@@ -127,7 +127,7 @@
 </section>
 <section aria-labelledby="h-1">
 <h2 id="h-1">First: is the file complete?</h2>
-<p>The same message shows up in two opposite situations, so this is the first check.</p><ul><li><strong>The file came straight off the card:</strong> the recording was cut off, the footage is inside, and it can be repaired. Go on to the steps.</li><li><strong>The file came by download, WeTransfer, Drive sync or a copy:</strong> compare its size with the original. If it's smaller, or stops at exactly a round number of megabytes, the transfer broke off and the end of the file is empty. No program builds footage that never arrived. Ask for the file again. A real example: a file cut at exactly 1050 MB, 88 percent of it empty.</li></ul>
+<p>The same message shows up in two opposite situations, so this is the first check.</p><ul><li><strong>The file came straight off the card:</strong> the recording was cut off, the footage is inside, and it can be repaired. Go to the steps below.</li><li><strong>The file came by download, WeTransfer, Drive sync or a copy:</strong> compare its size with the original. If it's smaller, or stops at exactly a round number of megabytes, the transfer broke off and the end of the file is empty. No program builds footage that never arrived. Ask for the file again. One that came to me: a file that stopped at exactly 1,050 MB. When I checked it, 88 percent of it was empty.</li></ul>
 </section>
 <section aria-labelledby="h-2">
 <h2 id="h-2">What to do, step by step</h2>
@@ -143,7 +143,7 @@
 </section>
 <section aria-labelledby="h-faq">
 <h2 id="h-faq">Short answers</h2>
-<ul><li><strong>Can ffmpeg fix it?</strong> Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc.</li><li><strong>The file is the right size and still won't open?</strong> Then the recording was cut off and the footage is inside. Go on to the steps.</li><li><strong>I have no technical background. Can I do this myself?</strong> Yes. The program works like any other: open it, pick two files, press a button. Nothing to type. What needs attention is the size check at the start and the video check at the end.</li></ul>
+<ul><li><strong>Can ffmpeg fix it?</strong> Not when the map was never written. ffmpeg needs it to read the file. You need a program that builds a new map from a sample clip, such as untrunc.</li><li><strong>The file is the right size and still won't open?</strong> Then the recording was cut off and the footage is inside. Go back to the steps above.</li><li><strong>I have no technical background. Can I do this myself?</strong> Yes. The program works like any other: open it, pick two files, press a button. Nothing to type. What needs attention is the size check at the start and the video check at the end.</li></ul>
 </section>
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">If you're stuck</h2>
