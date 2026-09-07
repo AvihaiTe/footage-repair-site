@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
+<meta name="referrer" content="no-referrer">
+<title>“moov atom not found”: מה השגיאה אומרת ואיך מתקנים</title>
+<meta name="description" content="moov atom not found אומר שלקובץ הווידאו אין אינדקס: ההקלטה נקטעה, או שההעברה נעצרה באמצע. איך מבדילים, ומה באמת מתקן את זה.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/moov-atom-not-found/">
+<link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/moov-atom-not-found/">
+<link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/moov-atom-not-found/">
+<meta property="og:title" content="“moov atom not found”: מה זה אומר ומה עושים">
+<meta property="og:description" content="moov atom not found אומר שלקובץ הווידאו אין אינדקס: ההקלטה נקטעה, או שההעברה נעצרה באמצע. איך מבדילים, ומה באמת מתקן את זה.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/assistant-hebrew-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/assistant.css">
+<style>
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:1.1875rem;line-height:1.8}
+  .skip{position:absolute;right:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{right:8px}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  nav.lang{position:absolute;top:22px;left:24px;font-size:.95rem;direction:ltr}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;letter-spacing:.03em;margin-bottom:10px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
+  section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-right:18px}
+  h2::before{content:"";position:absolute;right:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-right:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-right:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:right;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
+  th,td{padding:12px 14px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ffmpeg יכול לתקן moov atom not found?", "acceptedAnswer": {"@type": "Answer", "text": "לא כשה-moov מעולם לא נכתב. ffmpeg צריך את האינדקס כדי לקרוא את הקובץ בכלל, ו-movflags faststart רק מזיז אינדקס שכבר קיים. צריך כלי שבונה את האינדקס מחדש לפי קליפ דוגמה."}}, {"@type": "Question", "name": "הקובץ בגודל הנכון אבל עדיין לא נפתח.", "acceptedAnswer": {"@type": "Answer", "text": "אז ההקלטה נקטעה והחומר שם. בונים את האינדקס מחדש לפי קליפ דוגמה מאותה מצלמה באותן הגדרות."}}, {"@type": "Question", "name": "הקובץ הגיע מהורדה או מ-WeTransfer.", "acceptedAnswer": {"@type": "Answer", "text": "קודם משווים את הגודל למקור. אם הוא קטן יותר, ההעברה נכשלה ושום תיקון לא יעזור; מבקשים את הקובץ שוב."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<header class="hero"><div class="in">
+<nav class="lang" aria-label="שפה"><a href="../en/moov-atom-not-found/" lang="en" hreflang="en">English</a></nav>
+<p class="tag"><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></p>
+<h1>“moov atom not found”: מה זה אומר ומה עושים</h1>
+<p class="lead">תראו את זה ב-ffmpeg, בלוג של VLC, ב-HandBrake או בתוכנת עריכה כשמנסים לפתוח MP4 או MOV בלי אינדקס. נפוץ ב-DJI (Osmo, Mavic, Pocket), GoPro, מצלמות רכב וטלפונים, וזה תמיד אומר אחד משני דברים.</p>
+<p class="kw">השורה המלאה בדרך כלל: [mov,mp4,m4a,3gp,3g2,mj2] moov atom not found.</p>
+</div></header>
+
+<main id="main">
+
+<section aria-labelledby="h-1">
+<h2 id="h-1">מה זה moov atom</h2>
+<p>לכל MP4 ו-MOV יש בלוק קטן שנקרא moov: המפה שאומרת לנגן כמה הקובץ ארוך ואיפה יושב כל פריים. מצלמות כותבות אותו אחרון, כשההקלטה נגמרת כמו שצריך. בלי moov אין מפה, והנגן מסרב לקובץ גם כשהתמונה והסאונד יושבים שם.</p>
+</section>
+<section aria-labelledby="h-2">
+<h2 id="h-2">שתי סיבות שונות לגמרי לאותה הודעה</h2>
+<p>אותה הודעה, שני מצבים הפוכים, והדבר הראשון לעשות הוא להבין איזה מהם יש לכם.</p><ul><li><strong>ההקלטה נקטעה.</strong> המצלמה נכבתה, הסוללה נגמרה, הכרטיס נשלף, האפליקציה קרסה. הקובץ בגודל מלא והחומר בפנים, הוא פשוט לא קיבל מפה. את זה אפשר לתקן.</li><li><strong>ההעברה נעצרה באמצע.</strong> הורדה, WeTransfer, סנכרון דרייב או העתקה שלא הסתיימו. הקובץ נראה כמו וידאו אבל הסוף שלו ריק, ואף תוכנת תיקון לא יכולה לבנות חומר שלא הגיע. הפתרון הוא לקבל את הקובץ שוב מאיפה שהוא בא.</li></ul><p>איך מבדילים: משווים את הגודל למקור בכרטיס או לעותק אצל השולח. קובץ שקטן בהרבה ממה שהוא אמור להיות, או שנעצר במספר עגול חשוד של מגה-בייט, עבר העברה שנשברה. קיבלתי פעם קובץ שנחתך בדיוק ב-1050 מגה-בייט והיה ריק ב-88 אחוז מבפנים.</p>
+</section>
+<section aria-labelledby="h-3">
+<h2 id="h-3">מה לא עובד</h2>
+<ul><li>לשנות שם או סיומת.</li><li>ffmpeg עם <code>‎-c copy</code> או <code>‎-movflags faststart</code>. שניהם צריכים moov קיים כדי לקרוא את הקובץ בכלל; הם יודעים להזיז אינדקס, לא להמציא אחד.</li><li>ממירים ונגנים ש"מתקנים תוך כדי". אותה בעיה: הם לא יכולים לקרוא מה שהם לא מצליחים לפתוח.</li></ul>
+</section>
+<section aria-labelledby="h-4">
+<h2 id="h-4">מה כן עובד</h2>
+<ol class="steps"><li><strong>לא לפרמט את הכרטיס, לא להמשיך לצלם עליו.</strong> מעתיקים את הקובץ למחשב ועובדים על העותק.</li><li><strong>קליפ דוגמה.</strong> הקלטה תקינה מאותה מצלמה באותן הגדרות בדיוק: אותה רזולוציה, אותו מספר פריימים לשנייה, אותה איכות הקלטה, ואותו קודק (H.264 או HEVC; ב-DJI וב-GoPro אפשר לעבור ביניהם). האורך לא משנה. אם אין לכם, שימו כרטיס, מכסה על העדשה, והקליטו 30 שניות.</li><li><strong>untrunc.</strong> תוכנה חינמית שבונה את האינדקס מחדש לפי קליפ הדוגמה (<a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">מורידים כאן</a>, לווינדוס, עם ממשק פשוט). עובד עם DJI, GoPro ורוב המותגים האחרים. בוחרים את קליפ הדוגמה, בוחרים את הקובץ הפגום, ומריצים. זו אותה שיטה שהתוכנות בתשלום משתמשות בה. לפעמים צריך להריץ פעמיים.</li><li><strong>ואז בודקים את כל הקובץ.</strong> האורך צריך להתאים למה שצילמתם. גוללים לחמש-שש נקודות לאורכו, בעיקר לקראת הסוף, ורואים כמה שניות בכל אחת. השפתיים צריכות עדיין לשבת על הסאונד. אם משהו לא מסתדר, הפתרון הוא קליפ דוגמה יותר תואם ועוד ריצה, לא תוכנה אחרת.</li></ol>
+</section>
+<section aria-labelledby="h-faq">
+<h2 id="h-faq">תשובות קצרות</h2>
+<ul><li><strong>ffmpeg יכול לתקן moov atom not found?</strong> לא כשה-moov מעולם לא נכתב. ffmpeg צריך את האינדקס כדי לקרוא את הקובץ בכלל, ו-movflags faststart רק מזיז אינדקס שכבר קיים. צריך כלי שבונה את האינדקס מחדש לפי קליפ דוגמה.</li><li><strong>הקובץ בגודל הנכון אבל עדיין לא נפתח.</strong> אז ההקלטה נקטעה והחומר שם. בונים את האינדקס מחדש לפי קליפ דוגמה מאותה מצלמה באותן הגדרות.</li><li><strong>הקובץ הגיע מהורדה או מ-WeTransfer.</strong> קודם משווים את הגודל למקור. אם הוא קטן יותר, ההעברה נכשלה ושום תיקון לא יעזור; מבקשים את הקובץ שוב.</li></ul>
+</section>
+<section aria-labelledby="h-stuck">
+<h2 id="h-stuck">אם נתקעתם</h2>
+<p>אם הקובץ גדול, אם גם הריצה השנייה יצאה מקרטעת, או שפשוט אין לכם ראש לזה עכשיו — תשלחו לי לינק לקובץ ולקליפ תקין מאותה מצלמה. אני בודק קודם אם החומר בכלל נמצא בקובץ ואומר לכם מה המצב. <strong>הבדיקה הזאת בחינם</strong>, ואם לא הצלחתי לשחזר, לא שילמתם. אני אביחי, צלם וידאו על Sony FX3; הקובץ הארוך ביותר ששחזרתי עד עכשיו היה כמעט שעתיים.</p>
+<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&amp;transparentBackground=1" title="טופס פנייה" class="tally"></iframe></div><p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
+</section>
+<section aria-labelledby="h-more">
+<h2 id="h-more">הודעות אחרות שאומרות את אותו הדבר</h2>
+<ul><li><a href="../rsv-file/">קובץ RSV מסוני לא נפתח</a></li><li><a href="../0xc00d36c4/">0xc00d36c4 “This file isn't playable”</a></li><li><a href="../premiere-file-importer-inconsistency/">פרימייר: “inconsistency in the file structure”</a></li><li><a href="../vlc-cant-recognize-format/">VLC “can't recognize the input's format”</a></li><li><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></li></ul>
+</section>
+
+</main>
+
+<footer>אביחי תרם · <a href="../#h-a11y">הצהרת נגישות ופרטיות</a> · <a href="../en/moov-atom-not-found/" lang="en" hreflang="en">English</a></footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
+<meta name="referrer" content="no-referrer">
+<title>“File importer detected an inconsistency in the file structure” בפרימייר</title>
+<meta name="description" content="פרימייר מציג את השגיאה הזו בייבוא כשלקובץ מהמצלמה אין אינדקס, ובייצוא מסיבות אחרות לגמרי. איך יודעים איזה מקרה זה, ומה מתקן כל אחד.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/premiere-file-importer-inconsistency/">
+<link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/premiere-file-importer-inconsistency/">
+<link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/premiere-file-importer-inconsistency/">
+<meta property="og:title" content="פרימייר: “File importer detected an inconsistency in the file structure”">
+<meta property="og:description" content="פרימייר מציג את השגיאה הזו בייבוא כשלקובץ מהמצלמה אין אינדקס, ובייצוא מסיבות אחרות לגמרי. איך יודעים איזה מקרה זה, ומה מתקן כל אחד.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/assistant-hebrew-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/assistant.css">
+<style>
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:1.1875rem;line-height:1.8}
+  .skip{position:absolute;right:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{right:8px}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  nav.lang{position:absolute;top:22px;left:24px;font-size:.95rem;direction:ltr}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;letter-spacing:.03em;margin-bottom:10px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
+  section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-right:18px}
+  h2::before{content:"";position:absolute;right:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-right:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-right:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:right;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
+  th,td{padding:12px 14px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "פרימייר מציג את השגיאה אבל VLC מנגן את הקובץ.", "acceptedAnswer": {"@type": "Answer", "text": "אז הקובץ כנראה תקין. מנקים את ה-media cache של פרימייר ומייבאים שוב."}}, {"@type": "Question", "name": "זה קורה רק כשאני מייצא.", "acceptedAnswer": {"@type": "Answer", "text": "זו בעיית כתיבה, לא בעיית חומר: שם תיקייה עם תווים שאינם אנגלית, דיסק מלא, או קידוד חומרה בגרסה בעייתית."}}, {"@type": "Question", "name": "ומה עם “The file has an unsupported compression type”?", "acceptedAnswer": {"@type": "Answer", "text": "פרימייר מציג את זה לאותם קבצים פגומים, כשהוא לא מוצא אינדקס קריא בכלל. מטפלים בזה אותו דבר: בודקים ב-VLC, ואז בונים מחדש."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<header class="hero"><div class="in">
+<nav class="lang" aria-label="שפה"><a href="../en/premiere-file-importer-inconsistency/" lang="en" hreflang="en">English</a></nav>
+<p class="tag"><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></p>
+<h1>פרימייר: “File importer detected an inconsistency in the file structure”</h1>
+<p class="lead">פרימייר מציג את זה לשתי בעיות שלא קשורות, ואיזו מהן יש לכם תלוי במתי ההודעה הופיעה: בזמן ייבוא של קליפ מהמצלמה, או בזמן ייצוא. לתיקונים אין שום דבר במשותף.</p>
+<p class="kw">ההודעה האחות, “The file has an unsupported compression type”, מצביעה בדרך כלל על אותם קבצים.</p>
+</div></header>
+
+<main id="main">
+
+<section aria-labelledby="h-1">
+<h2 id="h-1">אם זה הופיע בייבוא</h2>
+<p>פרימייר קורא את האינדקס של הקובץ ומגלה שהוא לא מתאים למה שיש בקובץ. בחומר ממצלמה זה כמעט תמיד אומר הקלטה שנקטעה לפני שהמצלמה סיימה לכתוב אותה (בגופי סוני הקובץ עשוי להיגמר ב-RSV במקום MP4), או קובץ שעבר העברה שנעצרה באמצע.</p><p><strong>בדיקה מהירה:</strong> פותחים את אותו קובץ ב-VLC ומנגנים את הדקה האחרונה. אם גם VLC נכשל, הקובץ פגום ופרימייר הוא רק השליח. אם VLC מנגן אותו בסדר, כולל הסוף, כנראה שהאשם הוא ה-media cache של פרימייר: מנקים אותו (Preferences → Media Cache → Delete) ומייבאים שוב.</p>
+</section>
+<section aria-labelledby="h-2">
+<h2 id="h-2">אם הקובץ פגום</h2>
+<ol class="steps"><li><strong>לא לפרמט את הכרטיס, לא להמשיך לצלם עליו.</strong> מעתיקים את הקובץ למחשב ועובדים על העותק.</li><li><strong>קליפ דוגמה.</strong> הקלטה תקינה מאותה מצלמה באותן הגדרות בדיוק: אותה רזולוציה, אותו מספר פריימים לשנייה, אותה איכות הקלטה. האורך לא משנה. אם אין לכם, שימו כרטיס, מכסה על העדשה, והקליטו 30 שניות.</li><li><strong>untrunc.</strong> תוכנה חינמית שבונה את האינדקס מחדש לפי קליפ הדוגמה (<a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">מורידים כאן</a>, לווינדוס, עם ממשק פשוט). בוחרים את קליפ הדוגמה, בוחרים את הקובץ הפגום, ומריצים. זו אותה שיטה שהתוכנות בתשלום משתמשות בה. לפעמים צריך להריץ פעמיים.</li><li><strong>ואז בודקים את כל הקובץ.</strong> האורך צריך להתאים למה שצילמתם. גוללים לחמש-שש נקודות לאורכו, בעיקר לקראת הסוף, ורואים כמה שניות בכל אחת. השפתיים צריכות עדיין לשבת על הסאונד. אם משהו לא מסתדר, הפתרון הוא קליפ דוגמה יותר תואם ועוד ריצה, לא תוכנה אחרת.</li></ol><p>מייבאים את הקובץ המשוחזר, לא את המקורי, ועוברים עליו בפרימייר פעם נוספת לפני שחותכים.</p>
+</section>
+<section aria-labelledby="h-3">
+<h2 id="h-3">אם זה הופיע בייצוא</h2>
+<p>אז זה לא קשור לחומר שלכם בכלל. פרימייר לא מצליח לכתוב את קובץ הייצוא. הפורום של אדובי מונה את הסיבות הרגילות:</p><ul><li><strong>לשם תיקיית היעד יש תווים שאינם אנגלית</strong> (עברית, למשל). מייצאים לתיקייה שכל הנתיב שלה באותיות אנגליות בלבד.</li><li><strong>נגמר המקום בדיסק.</strong> מפנים מקום, או מייצאים לדיסק אחר.</li><li><strong>קידוד חומרה בגרסאות מסוימות.</strong> בגרסה 23.1 היה באג ידוע שתוקן ב-23.2. עוברים לקידוד תוכנה או מעדכנים.</li></ul>
+</section>
+<section aria-labelledby="h-faq">
+<h2 id="h-faq">תשובות קצרות</h2>
+<ul><li><strong>פרימייר מציג את השגיאה אבל VLC מנגן את הקובץ.</strong> אז הקובץ כנראה תקין. מנקים את ה-media cache של פרימייר ומייבאים שוב.</li><li><strong>זה קורה רק כשאני מייצא.</strong> זו בעיית כתיבה, לא בעיית חומר: שם תיקייה עם תווים שאינם אנגלית, דיסק מלא, או קידוד חומרה בגרסה בעייתית.</li><li><strong>ומה עם “The file has an unsupported compression type”?</strong> פרימייר מציג את זה לאותם קבצים פגומים, כשהוא לא מוצא אינדקס קריא בכלל. מטפלים בזה אותו דבר: בודקים ב-VLC, ואז בונים מחדש.</li></ul>
+</section>
+<section aria-labelledby="h-stuck">
+<h2 id="h-stuck">אם נתקעתם</h2>
+<p>אם הקובץ גדול, אם גם הריצה השנייה יצאה מקרטעת, או שפשוט אין לכם ראש לזה עכשיו — תשלחו לי לינק לקובץ ולקליפ תקין מאותה מצלמה. אני בודק קודם אם החומר בכלל נמצא בקובץ ואומר לכם מה המצב. <strong>הבדיקה הזאת בחינם</strong>, ואם לא הצלחתי לשחזר, לא שילמתם. אני אביחי, צלם וידאו על Sony FX3; הקובץ הארוך ביותר ששחזרתי עד עכשיו היה כמעט שעתיים.</p>
+<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&amp;transparentBackground=1" title="טופס פנייה" class="tally"></iframe></div><p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
+</section>
+<section aria-labelledby="h-more">
+<h2 id="h-more">הודעות אחרות שאומרות את אותו הדבר</h2>
+<ul><li><a href="../rsv-file/">קובץ RSV מסוני לא נפתח</a></li><li><a href="../moov-atom-not-found/">“moov atom not found”</a></li><li><a href="../0xc00d36c4/">0xc00d36c4 “This file isn't playable”</a></li><li><a href="../vlc-cant-recognize-format/">VLC “can't recognize the input's format”</a></li><li><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></li></ul>
+</section>
+
+</main>
+
+<footer>אביחי תרם · <a href="../#h-a11y">הצהרת נגישות ופרטיות</a> · <a href="../en/premiere-file-importer-inconsistency/" lang="en" hreflang="en">English</a></footer>
+</body>
+</html>

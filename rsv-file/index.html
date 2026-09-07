@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
+<meta name="referrer" content="no-referrer">
+<title>קובץ RSV מסוני לא נפתח: מה זה ואיך מתקנים</title>
+<meta name="description" content="קובץ RSV הוא הקלטה של מצלמת סוני (FX3, FX30, FX6, A7S III, A7 IV) שנקטעה לפני שהמצלמה סיימה לכתוב אותה. מה זה הקובץ, מה לא לעשות, ואיך בונים אותו מחדש.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/rsv-file/">
+<link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/rsv-file/">
+<link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/rsv-file/">
+<meta property="og:title" content="קובץ RSV מסוני: מה זה ואיך פותחים אותו">
+<meta property="og:description" content="קובץ RSV הוא הקלטה של מצלמת סוני (FX3, FX30, FX6, A7S III, A7 IV) שנקטעה לפני שהמצלמה סיימה לכתוב אותה. מה זה הקובץ, מה לא לעשות, ואיך בונים אותו מחדש.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/assistant-hebrew-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/assistant.css">
+<style>
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:1.1875rem;line-height:1.8}
+  .skip{position:absolute;right:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{right:8px}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  nav.lang{position:absolute;top:22px;left:24px;font-size:.95rem;direction:ltr}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;letter-spacing:.03em;margin-bottom:10px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
+  section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-right:18px}
+  h2::before{content:"";position:absolute;right:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-right:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-right:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:right;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
+  th,td{padding:12px 14px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "אפשר פשוט לשנות RSV ל-MP4?", "acceptedAnswer": {"@type": "Answer", "text": "אפשר, אבל בדרך כלל זה לא משנה כלום. לקובץ חסר האינדקס, וסיומת חדשה לא מוסיפה אותו."}}, {"@type": "Question", "name": "המצלמה תתקן את קובץ ה-RSV?", "acceptedAnswer": {"@type": "Answer", "text": "לא. ההודעה Image Database File error. Recover? מתקנת את הקטלוג של המצלמה על הכרטיס כדי שתוכל להמשיך להקליט. לפי מדריך סוני זה לא מוחק כלום, אבל זה גם לא בונה מחדש את ההקלטה."}}, {"@type": "Question", "name": "אורך ההקלטה משנה?", "acceptedAnswer": {"@type": "Answer", "text": "לא לשאלה אם אפשר לבנות אותה מחדש. הקלטה של שעתיים נבנית מחדש בדיוק כמו הקלטה של שתי דקות, זה רק לוקח יותר זמן וצריך יותר מקום בדיסק."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+
+<header class="hero"><div class="in">
+<nav class="lang" aria-label="שפה"><a href="../en/rsv-file/" lang="en" hreflang="en">English</a></nav>
+<p class="tag"><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></p>
+<h1>קובץ RSV מסוני: מה זה ואיך פותחים אותו</h1>
+<p class="lead">יש על הכרטיס קובץ שנגמר ב-<strong>RSV</strong> במקום MP4, ושום דבר לא פותח אותו. ככה סוני אומרת שההקלטה לא הסתיימה: המצלמה נכבתה, נגמרה הסוללה, או שהכרטיס יצא בזמן שהיא עוד כתבה. הצילומים כמעט תמיד עדיין בפנים.</p>
+<p class="kw">רלוונטי ל-FX3, FX30, FX6, A7S III, A7 IV, ZV-E1 ושאר גופי סוני שמקליטים XAVC.</p>
+</div></header>
+
+<main id="main">
+
+<section aria-labelledby="h-1">
+<h2 id="h-1">מה זה בעצם קובץ RSV</h2>
+<p>בזמן שמצלמת סוני מקליטה, היא כותבת את התמונה והסאונד לכרטיס מיד, תחת שם זמני שנגמר ב-RSV. הדבר היחיד שהיא שומרת לסוף, כשלוחצים סטופ, הוא האינדקס: המפה שאומרת לנגן איפה יושב כל פריים. באותו רגע הקובץ הופך ל-MP4 רגיל. אם החשמל נפל לפני זה, הקובץ נשאר עם השם הזמני ובלי מפה.</p><p>בגלל זה לשנות את הסיומת ל-MP4 בדרך כלל לא עוזר. הסיומת משתנה, המפה עדיין חסרה, והנגן עדיין לא מוצא את הפריים הראשון.</p>
+</section>
+<section aria-labelledby="h-2">
+<h2 id="h-2">מה המצלמה תגיד</h2>
+<p>בפעם הבאה שתדליקו את המצלמה עם הכרטיס הזה, היא עשויה להציג <strong>“Image Database File error. Recover?”</strong>. תבחרו לשחזר ותתנו לזה להסתיים. לפי מדריך העזרה של סוני זה מתקן את האינדקס של המצלמה על הכרטיס ולא מוחק כלום. אבל אל תצפו שזה יתקן את ההקלטה: זה מתקן את הקטלוג של הכרטיס, לא את הקובץ.</p>
+</section>
+<section aria-labelledby="h-3">
+<h2 id="h-3">רגע לפני שעושים משהו</h2>
+<div class="warn"><ul><li><strong>לא לפרמט את הכרטיס.</strong></li><li><strong>לא להמשיך לצלם עליו.</strong> מה שנדרס לא חוזר.</li><li><strong>מעתיקים את קובץ ה-RSV למחשב ועובדים על העותק.</strong></li><li><strong>ובאותה הזדמנות מעתיקים גם קליפ תקין מאותו כרטיס.</strong> תצטרכו אותו עוד רגע.</li></ul></div>
+</section>
+<section aria-labelledby="h-4">
+<h2 id="h-4">איך בונים אותו מחדש</h2>
+<ol class="steps"><li><strong>קליפ דוגמה.</strong> הקלטה תקינה מאותה מצלמה באותן הגדרות בדיוק: אותה רזולוציה, אותו מספר פריימים לשנייה, אותה איכות הקלטה. האורך לא משנה. אם אין לכם, שימו כרטיס, מכסה על העדשה, והקליטו 30 שניות.</li><li><strong>untrunc.</strong> תוכנה חינמית שבונה את האינדקס מחדש לפי קליפ הדוגמה (<a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">מורידים כאן</a>, לווינדוס, עם ממשק פשוט). בהגדרות שלה מסמנים את האפשרות לקבצי RSV. בוחרים את קליפ הדוגמה, בוחרים את הקובץ הפגום, ומריצים. זו אותה שיטה שהתוכנות בתשלום משתמשות בה. לפעמים צריך להריץ פעמיים.</li><li><strong>ואז בודקים את כל הקובץ.</strong> האורך צריך להתאים למה שצילמתם. גוללים לחמש-שש נקודות לאורכו, בעיקר לקראת הסוף, ורואים כמה שניות בכל אחת. השפתיים צריכות עדיין לשבת על הסאונד. אם משהו לא מסתדר, הפתרון הוא קליפ דוגמה יותר תואם ועוד ריצה, לא תוכנה אחרת.</li></ol>
+</section>
+<section aria-labelledby="h-faq">
+<h2 id="h-faq">תשובות קצרות</h2>
+<ul><li><strong>אפשר פשוט לשנות RSV ל-MP4?</strong> אפשר, אבל בדרך כלל זה לא משנה כלום. לקובץ חסר האינדקס, וסיומת חדשה לא מוסיפה אותו.</li><li><strong>המצלמה תתקן את קובץ ה-RSV?</strong> לא. ההודעה Image Database File error. Recover? מתקנת את הקטלוג של המצלמה על הכרטיס כדי שתוכל להמשיך להקליט. לפי מדריך סוני זה לא מוחק כלום, אבל זה גם לא בונה מחדש את ההקלטה.</li><li><strong>אורך ההקלטה משנה?</strong> לא לשאלה אם אפשר לבנות אותה מחדש. הקלטה של שעתיים נבנית מחדש בדיוק כמו הקלטה של שתי דקות, זה רק לוקח יותר זמן וצריך יותר מקום בדיסק.</li></ul>
+</section>
+<section aria-labelledby="h-stuck">
+<h2 id="h-stuck">אם נתקעתם</h2>
+<p>אם הקובץ גדול, אם גם הריצה השנייה יצאה מקרטעת, או שפשוט אין לכם ראש לזה עכשיו — תשלחו לי לינק לקובץ ולקליפ תקין מאותה מצלמה. אני בודק קודם אם החומר בכלל נמצא בקובץ ואומר לכם מה המצב. <strong>הבדיקה הזאת בחינם</strong>, ואם לא הצלחתי לשחזר, לא שילמתם. אני אביחי, צלם וידאו על Sony FX3; הקובץ הארוך ביותר ששחזרתי עד עכשיו היה כמעט שעתיים.</p>
+<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&amp;transparentBackground=1" title="טופס פנייה" class="tally"></iframe></div><p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
+</section>
+<section aria-labelledby="h-more">
+<h2 id="h-more">הודעות אחרות שאומרות את אותו הדבר</h2>
+<ul><li><a href="../moov-atom-not-found/">“moov atom not found”</a></li><li><a href="../0xc00d36c4/">0xc00d36c4 “This file isn't playable”</a></li><li><a href="../premiere-file-importer-inconsistency/">פרימייר: “inconsistency in the file structure”</a></li><li><a href="../vlc-cant-recognize-format/">VLC “can't recognize the input's format”</a></li><li><a href="../">המדריך המלא: מה קרה, מה לא לעשות, שלושת המקרים</a></li></ul>
+</section>
+
+</main>
+
+<footer>אביחי תרם · <a href="../#h-a11y">הצהרת נגישות ופרטיות</a> · <a href="../en/rsv-file/" lang="en" hreflang="en">English</a></footer>
+</body>
+</html>
