@@ -31,6 +31,12 @@
   body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI",Arial,sans-serif;font-size:1.1875rem;line-height:1.75}
   .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
   .skip:focus{left:8px}
+  .top{background:var(--paper);border-bottom:1px solid var(--line);font-size:.95rem}
+  .top .in{max-width:960px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
+  .top .brand{font-weight:700;color:var(--ink);text-decoration:none;margin-inline-end:auto}
+  .top .brand span{font-weight:400;color:var(--muted)}
+  .top a{color:#0b5058}
+  @media (min-width:1400px){.top .in{max-width:1040px}}
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
   .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
   nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
@@ -103,9 +109,9 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Language"><div class="in"><a class="brand" href="../">Avihai Teram <span>· video file repair</span></a><a href="../">The guide</a><a href="#h-stuck">Free check</a><a href="../../dji-gopro-video-wont-open/" lang="he" hreflang="he">עברית</a></div></nav>
 
 <header class="hero"><div class="in">
-<nav class="lang" aria-label="Language"><a href="../../dji-gopro-video-wont-open/" lang="he" hreflang="he">עברית</a></nav>
 <p class="tag"><a href="../">The full guide: what happened, what not to do, the three cases</a></p>
 <h1>DJI or GoPro video won't open? The footage is probably still there</h1>
 <p class="lead">Osmo, Pocket, Mavic, Mini, HERO: all of them write the video to the card as they go, and its “map” only at the end. If the camera shut off mid-recording (battery gone, the drone landed on an empty battery, the camera overheated and switched itself off, or the card was too slow), the file is left without a map and no player opens it. Most of the time the map can be rebuilt.</p>
