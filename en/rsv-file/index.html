@@ -6,13 +6,19 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
 <meta name="referrer" content="no-referrer">
 <title>Sony .RSV file won't open? The footage is probably still there</title>
-<meta name="description" content="The camera died mid-recording and left an .RSV file nothing will open? The footage is almost always still inside. What happened, what not to do right now, and how to bring the file back, in plain words.">
+<meta name="description" content="The camera died mid-recording and left an .RSV file nothing will open? The footage is almost always still inside. What to do, in plain words.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://avihaite.github.io/footage-repair-site/en/rsv-file/">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/rsv-file/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/rsv-file/">
+<link rel="alternate" hreflang="x-default" href="https://avihaite.github.io/footage-repair-site/en/rsv-file/">
+<meta property="og:url" content="https://avihaite.github.io/footage-repair-site/en/rsv-file/">
+<meta property="og:image" content="https://avihaite.github.io/footage-repair-site/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Sony .RSV file won't open? The footage is probably still there">
-<meta property="og:description" content="The camera died mid-recording and left an .RSV file nothing will open? The footage is almost always still inside. What happened, what not to do right now, and how to bring the file back, in plain words.">
+<meta property="og:description" content="The camera died mid-recording and left an .RSV file nothing will open? The footage is almost always still inside. What to do, in plain words.">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
 
@@ -28,13 +34,13 @@
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
   .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
   nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
-  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;letter-spacing:.03em;margin-bottom:10px}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;margin-bottom:10px}
   h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
   .lead{font-size:1.3125rem;margin:0;max-width:760px}
   .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
   main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
   section{margin:44px 0}
-  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
+  main section>p,main section>ul,main section>ol,main section>table,main section>h2,.legal>p{max-width:700px}
   h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
   h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
   p{margin:10px 0}
@@ -62,10 +68,12 @@
   .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
   .sent:not(:target){display:none}
   .tally{width:100%;height:640px;border:0;display:block}
-  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;max-width:600px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
   figure{margin:18px 0 6px;max-width:760px}
-  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  figure img[src$="windows-cant-play-0xc00d36e5.png"]{max-width:560px}
+  figure img[src$="moov-atom-ffprobe.png"]{max-width:550px}
   figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
   .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
   .brief h2{margin-bottom:6px}
@@ -73,6 +81,7 @@
   .brief li{margin:8px 0}
   .steps em{font-style:normal;color:#0b5058;font-weight:600}
   .about{border-top:1px solid var(--line);padding-top:18px}
+  @media print{.skip,nav.lang,.formcard,.alt{display:none}main,.legal,footer{max-width:none}}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
@@ -126,12 +135,12 @@
 </section>
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">If you're stuck</h2>
-<p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>, and if I can't recover it, you don't pay.</p>
+<p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>. If there's something to recover and you want to go ahead, I quote a price before starting and never charge without your approval. You can cancel any time before the work begins, and if I couldn't recover it, you don't pay.</p>
 <div class="formcard"><iframe src="https://tally.so/embed/81BKAl?alignLeft=1&amp;transparentBackground=1" title="Contact form" class="tally"></iframe></div><p class="alt">Prefer email? avihaiteram@gmail.com</p>
 </section>
 <section class="about" aria-labelledby="h-about">
 <h2 id="h-about">Who I am</h2>
-<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. The first check is always free, and if I couldn't recover it, you don't pay.</p>
+<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. I'm a registered Israeli business (עוסק מורשה, Avihai Teram); the first check is always free, and if I couldn't recover it, you don't pay.</p>
 </section>
 <section aria-labelledby="h-more">
 <h2 id="h-more">Other messages that mean the same thing</h2>
@@ -140,6 +149,6 @@
 
 </main>
 
-<footer>Avihai Teram · <a href="../#h-a11y">Accessibility statement and privacy</a> · <a href="../../rsv-file/" lang="he" hreflang="he">עברית</a></footer>
+<footer>Avihai Teram · Last checked: September 2026 · <a href="../#h-a11y">Accessibility statement and privacy</a> · <a href="../../rsv-file/" lang="he" hreflang="he">עברית</a></footer>
 </body>
 </html>

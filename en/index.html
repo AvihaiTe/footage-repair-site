@@ -6,10 +6,17 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
 <meta name="referrer" content="no-referrer">
 <title>Sony RSV file won't open? Camera died mid-recording — what to do</title>
-<meta name="description" content="A Sony .RSV or a DJI clip with moov atom not found: what happened, what not to do, how to repair it yourself with a free tool, and how to check the file before trusting it.">
+<meta name="description" content="A Sony .RSV or a DJI clip with moov atom not found: what happened, what not to do, how to repair it yourself with a free tool, and how to check it.">
 <meta name="robots" content="index,follow">
 <link rel="alternate" hreflang="he" href="https://avihaite.github.io/footage-repair-site/">
 <link rel="alternate" hreflang="en" href="https://avihaite.github.io/footage-repair-site/en/">
+<link rel="alternate" hreflang="x-default" href="https://avihaite.github.io/footage-repair-site/en/">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/en/">
+<meta property="og:url" content="https://avihaite.github.io/footage-repair-site/en/">
+<meta property="og:image" content="https://avihaite.github.io/footage-repair-site/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Camera died mid-recording? The footage is usually still there">
 <meta property="og:description" content="A short guide to an interrupted recording — Sony RSV, DJI, any MP4 without its index. What not to do, how to repair it, how to check it.">
 <meta property="og:type" content="website">
@@ -29,13 +36,13 @@
   .hero{background:var(--paper);border-bottom:1px solid var(--line)}
   .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
   nav.lang{position:absolute;top:22px;right:24px;font-size:.95rem}
-  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;letter-spacing:.03em;margin-bottom:10px}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;margin-bottom:10px}
   h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
   .lead{font-size:1.3125rem;margin:0;max-width:760px}
   .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
   main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
   section{margin:44px 0}
-  main section>p,main section>ul,main section>ol,.contact p,.legal>p{max-width:700px}
+  main section>p,main section>ul,main section>ol,main section>table,main section>h2,.legal>p{max-width:700px}
   h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-left:18px}
   h2::before{content:"";position:absolute;left:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
   p{margin:10px 0}
@@ -63,10 +70,12 @@
   .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
   .sent:not(:target){display:none}
   .tally{width:100%;height:640px;border:0;display:block}
-  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;max-width:600px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
   figure{margin:18px 0 6px;max-width:760px}
-  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  figure img[src$="windows-cant-play-0xc00d36e5.png"]{max-width:560px}
+  figure img[src$="moov-atom-ffprobe.png"]{max-width:550px}
   figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
   .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
   .brief h2{margin-bottom:6px}
@@ -74,6 +83,7 @@
   .brief li{margin:8px 0}
   .steps em{font-style:normal;color:#0b5058;font-weight:600}
   .about{border-top:1px solid var(--line);padding-top:18px}
+  @media print{.skip,nav.lang,.formcard,.alt{display:none}main,.legal,footer{max-width:none}}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
   a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
@@ -111,7 +121,7 @@
 
 <section aria-labelledby="h-what">
 <h2 id="h-what">What actually happened</h2>
-<p>The camera writes picture and sound to the card the whole time. But there's one more small part of the file — think of it as a <strong>map</strong> that tells a player where every frame sits — and the camera writes that map only at the end, when you press stop. If the power went before that, you're left with all the footage and no map, and no player knows where to start. That's why renaming the file to .mp4 doesn't help: it still has no map.</p>
+<p>The camera writes picture and sound to the card the whole time. But there's one more small part of the file — think of it as a <strong>map</strong> that tells a player where every frame sits (every single picture in the video) — and the camera writes that map only at the end, when you press stop. If the power went before that, you're left with all the footage and no map, and no player knows where to start. That's why renaming the file to .mp4 doesn't help: it still has no map.</p>
 <figure><img src="../img/rsv-folder.png" width="1582" height="353" alt="Windows File Explorer in the CLIP folder of a Sony card: two healthy MP4 files, two XML files, and a C2000.RSV file of 153,600 KB" loading="lazy"><figcaption>What it looks like on the card: a full-size RSV file next to healthy MP4s. The footage is inside, the map is missing.</figcaption></figure>
 </section>
 
@@ -119,7 +129,7 @@
 <h2 id="h-dont">Before you do anything</h2>
 <div class="warn">
 <ul>
-<li><strong>Don't format the card.</strong></li>
+<li><strong>Don't format the card</strong> (that erases everything on it).</li>
 <li><strong>Don't keep shooting on it.</strong> Whatever gets overwritten is gone.</li>
 <li><strong>Don't run a repair tool on the original file.</strong> Copy it first, work on the copy.</li>
 <li><strong>If the file reached you by transfer (WeTransfer, Drive) — check it arrived complete.</strong></li>
@@ -144,7 +154,7 @@
 <section aria-labelledby="h-diy">
 <h2 id="h-diy">How to repair it yourself</h2>
 <ol class="steps">
-<li><strong>A sample clip.</strong> You need a healthy recording from the same camera, at exactly the same settings: same resolution, same frames per second (25, 50, 100…), same recording quality. Length doesn't matter — put a card in, lens cap on, record 30 seconds.</li>
+<li><strong>A sample clip:</strong> a healthy recording from the same camera, at exactly the same settings: same resolution (the picture size, 4K say), same frames per second (25, 50 or 100), same recording quality. Length doesn't matter — put a card in, lens cap on, record 30 seconds.</li>
 <li><strong>A free tool called untrunc.</strong> <a href="https://github.com/anthwlock/untrunc/releases/latest" rel="noopener">Download it here</a> (Windows, with a simple interface). Pick the sample clip, pick the broken file, run it. It's exactly what the paid tools do. Sometimes it takes a second run.</li>
 <li><strong>Then check.</strong> This is the part most people skip, and it's why they only find the problem once they sit down to edit.</li>
 </ol>
@@ -176,7 +186,7 @@
 <section aria-labelledby="h-why">
 <h2 id="h-why">Back to the first case: why a "repaired" file comes out jittery</h2>
 <p>It isn't random. All of these tools build the new map from the sample clip. If the sample doesn't match exactly, the map comes out slightly off. When you scrub in a player it looks fine — and then when you export, or open it in your editing app, the picture jumps, green blocks appear, or the sound drifts toward the end.</p>
-<p><strong>So before you trust a repaired file:</strong> check its duration matches what you actually shot. Scrub to five or six points across the file, especially near the end, and watch a few seconds at each. And make sure lips still match sound. If anything's off — a better-matched sample clip and another pass. Not a different program.</p>
+<p><strong>So before you trust a repaired file:</strong> check its duration matches what you actually shot. Scrub to five or six points across the file, especially near the end, and at each one play a few seconds and check the picture moves smoothly and the lips match the speech. If anything's off — a better-matched sample clip and another pass. Not a different program.</p>
 </section>
 
 <!-- error-pages -->
@@ -188,21 +198,28 @@
 <!-- /error-pages -->
 <section aria-labelledby="h-stuck">
 <h2 id="h-stuck">If you're stuck</h2>
-<p>I'm Avihai, a videographer and editor shooting on a Sony FX3. I've repaired a number of RSV files, including one of my own — a recording of nearly two hours that came back whole. If the file is big, if the second run also came out jittery, or you just don't have the head for this right now — send me a link to the file and to the healthy clip. I first check whether the footage is actually in the file and tell you where you stand — <strong>that check is free</strong>, and you pay nothing before you know there's something to save. And if in the end I couldn't do it, you don't pay.</p>
+<p>If the file is big, if the second run also came out jittery, or you just don't have the head for this right now, send me a link to the file and to a healthy clip from the same camera. I first check whether the footage is actually in the file and tell you where you stand. <strong>That check is free</strong>. If there's something to recover and you want to go ahead, I quote a price before starting and never charge without your approval. You can cancel any time before the work begins, and if I couldn't recover it, you don't pay.</p>
 <div class="formcard"><iframe src="https://tally.so/embed/81BKAl?alignLeft=1&transparentBackground=1" title="Contact form" class="tally"></iframe></div>
 <p class="alt">Prefer email? avihaiteram@gmail.com</p>
+</section>
+
+<section class="about" aria-labelledby="h-about">
+<h2 id="h-about">Who I am</h2>
+<p>Avihai Teram, videographer and video editor, shooting on a Sony FX3. The first .RSV file I rebuilt was my own: a recording of nearly two hours the camera never finished writing, and it came back whole. Since then more files have passed through here, Sony and DJI, including one that turned out to be half empty because the transfer had stalled. I'm a registered Israeli business (עוסק מורשה, Avihai Teram); the first check is always free, and if I couldn't recover it, you don't pay.</p>
 </section>
 
 </main>
 
 <section class="legal" aria-labelledby="h-a11y">
 <h2 id="h-a11y">Accessibility statement</h2>
-<p>This page is built to be usable by everyone, following Israeli Standard 5568 (based on WCAG 2.0 level AA): a proper heading structure, full keyboard navigation with a visible focus indicator, a skip-to-content link, sufficient colour contrast, text that scales with your browser settings, a table with column headers, and no video, animation or auto-changing content. The images on the site are screenshots, each with a text alternative. It is a static site with no scripts. The contact form at the bottom is provided by Tally and can be completed by keyboard; if it isn't accessible to you, use the email address below instead.</p>
+<p>This page is built to be usable by everyone, following Israeli Standard 5568 (based on WCAG 2.0 level AA): a proper heading structure, full keyboard navigation with a visible focus indicator, a skip-to-content link, sufficient colour contrast, text that scales with your browser settings, a table with column headers, and no video, animation or auto-changing content. The images on the site are screenshots, each with a text alternative. It is a static site with no scripts. The contact form at the bottom is provided by Tally and can be completed by keyboard; if it isn't accessible to you, use the email address below instead. I'm the sole owner of this business with no staff, so no accessibility coordinator has been appointed: accessibility requests reach me directly. This statement reflects a self-assessment against the standard, not a third-party audit.</p>
 <p>If something here is hard for you to use, I'd like to know and fix it: <a href="mailto:avihaiteram@gmail.com?subject=Accessibility">avihaiteram@gmail.com</a>. Statement updated September 2026.</p>
 <h2 id="h-priv">Privacy</h2>
-<p>This page sets no cookies and runs no tracking or analytics. The font and all files load from this site itself. It is hosted on GitHub Pages, which like any web server keeps technical access logs. The form runs on Tally. What you enter (name, email, and phone if you choose) reaches me and is kept in my Notion workspace, and is used only to reply to you. It is not passed to anyone else, and you can ask me to delete it at any time by email.</p>
+<p>This page sets no cookies and runs no tracking or analytics. The font and all files load from this site itself. Filling in the form is entirely your choice and isn't required to read anything here. What you enter (name, email, and phone if you choose) is used only to reply to you, and isn't passed to anyone except the three services that run this site: the form runs on Tally (an EU company), the site is hosted on GitHub Pages and inquiries are kept in my Notion workspace (both US companies, so your data may be stored outside Israel). I keep your details while your inquiry is open, and delete them on request. You can ask at any time to see what I hold about you, correct it, or delete it, at the email above. This database has no registration duty under the Israeli Privacy Protection Law.</p>
+<h2 id="h-liab">Disclaimer</h2>
+<p>This guide reflects my own experience and is general in nature; it isn't a substitute for a look at your specific case. I'm not responsible for damage caused by working on the original file against the warnings above: copy first, then try.</p>
 </section>
 
-<footer>Avihai Teram · Sony RSV · DJI · moov atom not found · <a href="../" lang="he" hreflang="he">עברית</a></footer>
+<footer>Avihai Teram · Last checked: September 2026 · Sony RSV · DJI · moov atom not found · <a href="../" lang="he" hreflang="he">עברית</a></footer>
 </body>
 </html>
