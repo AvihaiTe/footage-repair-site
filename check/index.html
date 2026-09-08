@@ -138,7 +138,9 @@
   .cmp th,.cmp td{text-align:center}
   .cmp caption{padding:10px 12px;font-weight:700;background:var(--paper);border-bottom:1px solid var(--line);text-align:center}
   .cmp{border:0;border-radius:0}
-  @media (max-width:600px){.cmp{table-layout:auto;width:auto;min-width:640px}.cmp th:first-child,.cmp td:first-child{width:auto}.tally{height:820px}}
+  @media (max-width:600px){.cmp{table-layout:auto;width:auto;min-width:640px}.cmp th:first-child,.cmp td:first-child{width:auto}.tally{height:820px}
+    .cmphint{display:block;text-align:center;color:var(--muted);font-size:.9rem;margin:6px 0 0}}
+  .cmphint{display:none}
   .about{text-align:center}
   .formcard{margin-left:auto;margin-right:auto}
   .alt,.consent{text-align:center}
@@ -221,6 +223,7 @@
 </tbody>
 </table>
 </div>
+<p class="cmphint">הטבלה רחבה מהמסך: גררו אותה הצידה כדי לראות את שאר העמודות.</p>
 </section>
 
 <section class="promise" aria-labelledby="h-promise">
