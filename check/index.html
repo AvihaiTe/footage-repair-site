@@ -126,7 +126,8 @@
   .cta:hover,.cta:focus-visible{background:#0b5058;color:#fff}
   .hero .cta{margin-top:14px}
   .hero .cta{display:block;width:fit-content;margin:16px auto 0}
-  .hero .pledge{display:block;width:fit-content;background:var(--accent-soft);color:var(--ink);border:1px solid var(--accent);border-radius:999px;padding:9px 18px;font-size:1.02rem;margin:16px auto 0;max-width:760px}
+  .hero .pledge span{display:block;line-height:1.6}
+  .hero .pledge{display:block;width:fit-content;background:var(--accent-soft);color:var(--ink);border:1px solid var(--accent);border-radius:14px;padding:12px 26px;font-size:1.02rem;margin:16px auto 0;max-width:760px}
   /* a sales page: everything on the page's centre line, the way Israeli landing pages read */
   .hero .in{text-align:center}
   .hero .under{font-size:1.35rem;color:var(--accent);font-weight:700;margin:-4px 0 14px}
@@ -135,7 +136,9 @@
   main h2{text-align:center;padding-right:0;max-width:none;margin-left:auto;margin-right:auto}
   main h2::before{display:none}
   main h2::after{content:"";display:block;width:44px;height:4px;background:var(--accent);border-radius:2px;margin:10px auto 0}
-  main p{max-width:760px;margin-left:auto;margin-right:auto}
+  main p{max-width:760px;margin:0 auto 16px}
+  main li{margin:14px 0}
+  .hero .lead{margin-bottom:10px}
   main p,main li{text-align:right}
   main ul,main ol{list-style-position:outside;padding-right:1.3em;padding-left:0;max-width:760px;margin-left:auto;margin-right:auto}
   .why,.promise,.cmpwrap{max-width:820px;margin-left:auto;margin-right:auto}
@@ -179,7 +182,7 @@
   .top a{padding:10px 0;display:inline-block}
   .top .in{gap:10px 22px}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "כמה זמן זה לוקח?", "acceptedAnswer": {"@type": "Answer", "text": "תשובת הבדיקה תוך יום. השחזור עצמו בדרך כלל יום עד יומיים, תלוי בגודל הקובץ."}}, {"@type": "Question", "name": "צריך לשלוח את הכרטיס?", "acceptedAnswer": {"@type": "Answer", "text": "לא. קישור לקובץ ולקליפ תקין מספיק. את הכרטיס שומרים בצד, בלי לפרמט ובלי לצלם עליו, עד שהקובץ המשוחזר יגיע אליכם."}}, {"@type": "Question", "name": "הקובץ ענק.", "acceptedAnswer": {"@type": "Answer", "text": "אין הגבלה על גודל הקובץ: 65 ג׳יגה כבר עברו כאן. שולחים בדרייב או ב-WeTransfer, ואם זה לא נוח, נמצא דרך."}}, {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "לפי הקובץ: הגודל, מה חסר, וכמה עבודה יש. את המחיר אתם מקבלים אחרי הבדיקה החינמית ולפני שמתחילים, ואם השחזור לא הצליח, הכסף חוזר."}}, {"@type": "Question", "name": "ואם חוזר רק חלק?", "acceptedAnswer": {"@type": "Answer", "text": "הבדיקה אומרת מראש כמה יחזור. חזר פחות מזה? מקבלים החזר חלקי מהמחיר שסוכם. לא חזר כלום? החזר מלא."}}, {"@type": "Question", "name": "אין לי קליפ אחר מאותה מצלמה.", "acceptedAnswer": {"@type": "Answer", "text": "לא נורא. הכניסו כרטיס, סגרו את מכסה העדשה והקליטו 30 שניות באותן הגדרות. זה כל מה שצריך. ואם המצלמה כבר לא אצלכם, כתבו לי ונראה מה אפשר לעשות."}}, {"@type": "Question", "name": "מה קורה עם הצילומים שלי?", "acceptedAnswer": {"@type": "Answer", "text": "הם משמשים רק לשחזור ולא מועברים לאף אחד. עותק של הקובץ המשוחזר נשמר אצלי 30 יום אחרי המסירה, למקרה שמשהו נאבד אצלכם בדרך, ואז נמחק יחד עם המקור."}}, {"@type": "Question", "name": "אפשר לעשות את זה לבד?", "acceptedAnswer": {"@type": "Answer", "text": "כן, ואפילו כתבתי מדריך חינם בדיוק לזה. הדף הזה הוא בשביל מי שמעדיף שמישהו שעושה את זה כל יום יעשה את זה בשבילו, ויעמוד מאחורי התוצאה."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "כמה זמן זה לוקח?", "acceptedAnswer": {"@type": "Answer", "text": "תשובת הבדיקה תוך יום. השחזור עצמו בדרך כלל יום עד יומיים, תלוי בגודל הקובץ."}}, {"@type": "Question", "name": "צריך לשלוח את הכרטיס?", "acceptedAnswer": {"@type": "Answer", "text": "לא. אחרי שנדבר, מעבירים את הקובץ ואת הקליפ התקין בקישור, וזה מספיק. את הכרטיס שומרים בצד, בלי לפרמט ובלי לצלם עליו, עד שהקובץ המשוחזר יגיע אליכם."}}, {"@type": "Question", "name": "הקובץ ענק.", "acceptedAnswer": {"@type": "Answer", "text": "אין הגבלה על גודל הקובץ: 65 ג׳יגה כבר עברו כאן. שולחים בדרייב או ב-WeTransfer, ואם זה לא נוח, נמצא דרך."}}, {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "לפי הקובץ: הגודל, מה חסר, וכמה עבודה יש. את המחיר אתם מקבלים אחרי הבדיקה החינמית ולפני שמתחילים, ואם השחזור לא הצליח, הכסף חוזר."}}, {"@type": "Question", "name": "ואם חוזר רק חלק?", "acceptedAnswer": {"@type": "Answer", "text": "הבדיקה אומרת מראש כמה יחזור. חזר פחות מזה? מקבלים החזר חלקי מהמחיר שסוכם. לא חזר כלום? החזר מלא."}}, {"@type": "Question", "name": "אין לי קליפ אחר מאותה מצלמה.", "acceptedAnswer": {"@type": "Answer", "text": "לא נורא. הכניסו כרטיס, סגרו את מכסה העדשה והקליטו 30 שניות באותן הגדרות. זה כל מה שצריך. ואם המצלמה כבר לא אצלכם, כתבו לי ונראה מה אפשר לעשות."}}, {"@type": "Question", "name": "מה קורה עם הצילומים שלי?", "acceptedAnswer": {"@type": "Answer", "text": "הם משמשים רק לשחזור ולא מועברים לאף אחד. עותק של הקובץ המשוחזר נשמר אצלי 30 יום אחרי המסירה, למקרה שמשהו נאבד אצלכם בדרך, ואז נמחק יחד עם המקור."}}, {"@type": "Question", "name": "אפשר לעשות את זה לבד?", "acceptedAnswer": {"@type": "Answer", "text": "כן, ואפילו כתבתי מדריך חינם בדיוק לזה. הדף הזה הוא בשביל מי שמעדיף שמישהו שעושה את זה כל יום יעשה את זה בשבילו, ויעמוד מאחורי התוצאה."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "שחזור קבצי וידאו מהמצלמה", "serviceType": "Video file recovery", "areaServed": "IL", "url": "https://avihaite.github.io/footage-repair-site/check/", "inLanguage": "he", "provider": {"@type": "Person", "name": "אביחי תרם", "email": "avihaiteram@gmail.com", "url": "https://avihaite.github.io/footage-repair-site/"}, "offers": {"@type": "Offer", "description": "בדיקה ראשונה בחינם תוך יום. מחיר לפי הקובץ לפני העבודה. אם השחזור לא הצליח, הכסף חוזר.", "priceCurrency": "ILS"}}</script>
 </head>
 <body>
@@ -189,15 +192,16 @@
 <header class="hero"><div class="in">
 <h1>חזרתם מיום צילום והקבצים לא נפתחים? אני אשחזר לכם את הצילומים לקובץ MP4 תקין</h1>
 <p class="under">(משלמים רק אם הצלחתי)</p>
-<p class="lead">ההקלטה נקטעה באמצע, ונשאר קובץ שאף נגן לא פותח: RSV מסוני, או MP4 מ-Canon, Lumix, DJI או GoPro. ברוב המקרים הצילומים עדיין בפנים. שלחו לי את הקובץ, תוך יום תדעו בדיוק מה המצב, ותשלמו רק על תוצאה.</p>
-<p class="pledge">בדיקה חינם תוך יום · מחיר לפני העבודה · לא הצלחתי לשחזר, הכסף חוזר</p>
+<p class="lead">ההקלטה נקטעה באמצע, ונשאר קובץ שאף נגן לא פותח: RSV מסוני, או MP4 מ-Canon, Lumix, DJI או GoPro. ברוב המקרים הצילומים עדיין בפנים.</p>
+<p class="lead">השאירו פרטים למטה. תוך יום תדעו בדיוק מה המצב, ותשלמו רק על תוצאה.</p>
+<p class="pledge"><span>בדיקה חינם תוך יום</span><span>מחיר לפני העבודה</span><span>לא הצלחתי לשחזר? הכסף חוזר</span></p>
 <a class="cta" href="#h-form">שלחו לי את הקובץ לבדיקה חינם</a>
 </div></header>
 
 <main id="main"><div class="in">
 
 <section class="pain" aria-labelledby="h-pain">
-<h2 id="h-pain">המצלמה נכבתה. הקובץ לא נפתח. והלקוח מחכה.</h2>
+<h2 id="h-pain">המצלמה נכבתה, הקובץ לא נפתח, והלקוח מחכה.</h2>
 <p>אם הגעתם לכאן, כנראה שאחד מאלה קרה לכם היום:</p>
 <ul>
 <li>המצלמה נכבתה באמצע הצילום, נגמרה הסוללה, או שהכרטיס נשלף שנייה מוקדם מדי, ובמקום הסרטון יש קובץ שלא נפתח.</li>
@@ -220,8 +224,10 @@
 
 <section aria-labelledby="h-problem">
 <h2 id="h-problem">הצילומים לא נמחקו. הם רק בלי כתובת.</h2>
-<p>קובץ וידאו מורכב משני חלקים: החומר עצמו, שהמצלמה כותבת לכרטיס לאורך כל הצילום, ומפה קטנה שהיא כותבת רק בסוף, כשלוחצים סטופ. כשהמצלמה נכבית לפני הסוף, החומר על הכרטיס, והמפה לא. הנגן פותח את הקובץ, לא מוצא מפה, ומוותר. הצילומים לא נמחקו. הם פשוט חסרי כתובת.</p>
-<p>יש מקרה אחד שבו החומר באמת חסר: קובץ שהגיע בהורדה או בהעברה שנעצרה באמצע. הסוף שלו ריק, ושום תוכנה בעולם לא תבנה חומר שלא הגיע. את ההבדל בין שני המקרים רואים בבדיקה של דקה, וזה בדיוק הדבר הראשון שאני עושה, לפני שמדברים על כסף.</p>
+<p>קובץ וידאו מורכב משני חלקים: החומר עצמו, שהמצלמה כותבת לכרטיס לאורך כל הצילום, ומפה קטנה שהיא כותבת רק בסוף, כשלוחצים סטופ.</p>
+<p>כשהמצלמה נכבית לפני הסוף, החומר על הכרטיס, והמפה לא. הנגן פותח את הקובץ, לא מוצא מפה, ומוותר. הצילומים לא נמחקו. הם פשוט חסרי כתובת.</p>
+<p>יש מקרה אחד שבו החומר באמת חסר: קובץ שהגיע בהורדה או בהעברה שנעצרה באמצע. הסוף שלו ריק, ושום תוכנה בעולם לא תבנה חומר שלא הגיע.</p>
+<p>את ההבדל בין שני המקרים רואים בבדיקה של דקה. זה בדיוק הדבר הראשון שאני עושה, לפני שמדברים על כסף.</p>
 </section>
 
 <section class="why" aria-labelledby="h-why">
@@ -252,7 +258,7 @@
 <section class="promise" aria-labelledby="h-promise">
 <h2 id="h-promise">ההתחייבות שלי, במילים מדויקות</h2>
 <ol>
-<li><strong>הבדיקה הראשונה בחינם, תמיד.</strong> אתם שולחים קישור לקובץ ולקליפ תקין מאותה מצלמה. תוך יום אני אומר לכם אם החומר בפנים, כמה ממנו, ומה אפשר להחזיר: הכול, חלק, או כלום. על הבדיקה לא משלמים, גם אם התשובה היא “אין מה להציל”.</li>
+<li><strong>הבדיקה הראשונה בחינם, תמיד.</strong> אתם משאירים פרטים, אנחנו מעבירים את הקובץ ואת הקליפ התקין, ותוך יום אני אומר לכם אם החומר בפנים, כמה ממנו, ומה אפשר להחזיר: הכול, חלק, או כלום. על הבדיקה לא משלמים, גם אם התשובה היא “אין מה להציל”.</li>
 <li><strong>מחיר לפני העבודה, לפי הקובץ.</strong> אחרי הבדיקה אתם מקבלים מחיר. משלמים, ואז העבודה מתחילה. עד התשלום אתם לא מחויבים לכלום.</li>
 <li><strong>לא הצלחתי? הכסף חוזר.</strong> אם הבדיקה אמרה “הכול חוזר” וחזר הכול, זה מה ששילמתם עליו. אם חזר רק חלק ממה שנאמר בבדיקה, מקבלים החזר חלקי מהמחיר שסוכם. ואם לא חזר כלום, מקבלים את כל הכסף בחזרה.</li>
 <li><strong>הקובץ נבדק עד הסוף לפני שהוא מגיע אליכם.</strong> אורך, גלילה לאורך כל הסרטון, סנכרון שפתיים, ייבוא ל-Premiere או ל-Resolve. מה שלא עבר את הבדיקה הזאת לא נמסר כ“מוכן”.</li>
@@ -269,8 +275,9 @@
 <section class="how" aria-labelledby="h-how">
 <h2 id="h-how">איך זה עובד</h2>
 <ol>
-<li><strong>שולחים</strong> קישור לקובץ ולקליפ תקין מאותה מצלמה: מעלים לדרייב או ל-WeTransfer (שניהם בחינם) ומעתיקים את קישור השיתוף. לא בטוחים איך? כתבו לי ונעשה את זה ביחד. אין קליפ אחר מאותה מצלמה? הכניסו כרטיס, סגרו את מכסה העדשה והקליטו 30 שניות, זה מספיק. אין הגבלה על הגודל. ואת הכרטיס משאירים בצד: לא מפרמטים, לא מצלמים עליו.</li>
-<li><strong>תוך יום</strong> אתם מקבלים את תוצאת הבדיקה ואת המחיר.</li>
+<li><strong>משאירים פרטים בטופס:</strong> איזו מצלמה, מה קרה, ואיך הקובץ הגיע אליכם. ואת הכרטיס משאירים בצד: לא מפרמטים, לא מצלמים עליו.</li>
+<li><strong>אחזור אליכם תוך יום,</strong> ונעביר את הקובץ ואת הקליפ התקין מאותה מצלמה: מעלים לדרייב או ל-WeTransfer (שניהם בחינם) ושולחים לי את הקישור. לא בטוחים איך? נעשה את זה ביחד. אין קליפ אחר מאותה מצלמה? הכניסו כרטיס, סגרו את מכסה העדשה והקליטו 30 שניות, זה מספיק. אין הגבלה על הגודל.</li>
+<li><strong>תוך יום</strong> מהרגע שהקובץ אצלי, אתם מקבלים את תוצאת הבדיקה ואת המחיר.</li>
 <li><strong>אחרי התשלום</strong> אני משחזר את הקובץ, בודק אותו עד הסוף, ושולח לכם אותו. לא חזר מה שנאמר בבדיקה? הכסף חוזר, כולו או חלקו, לפי התוצאה.</li>
 </ol>
 </section>
@@ -284,7 +291,7 @@
 <h2 id="h-faq">שאלות שכולם שואלים</h2>
 <ul>
 <li><strong>כמה זמן זה לוקח?</strong> תשובת הבדיקה תוך יום. השחזור עצמו בדרך כלל יום עד יומיים, תלוי בגודל הקובץ.</li>
-<li><strong>צריך לשלוח את הכרטיס?</strong> לא. קישור לקובץ ולקליפ תקין מספיק. את הכרטיס שומרים בצד, בלי לפרמט ובלי לצלם עליו, עד שהקובץ המשוחזר יגיע אליכם.</li>
+<li><strong>צריך לשלוח את הכרטיס?</strong> לא. אחרי שנדבר, מעבירים את הקובץ ואת הקליפ התקין בקישור, וזה מספיק. את הכרטיס שומרים בצד, בלי לפרמט ובלי לצלם עליו, עד שהקובץ המשוחזר יגיע אליכם.</li>
 <li><strong>הקובץ ענק.</strong> אין הגבלה על גודל הקובץ: 65 ג׳יגה כבר עברו כאן. שולחים בדרייב או ב-WeTransfer, ואם זה לא נוח, נמצא דרך.</li>
 <li><strong>כמה זה עולה?</strong> לפי הקובץ: הגודל, מה חסר, וכמה עבודה יש. את המחיר אתם מקבלים אחרי הבדיקה החינמית ולפני שמתחילים, ואם השחזור לא הצליח, הכסף חוזר.</li>
 <li><strong>ואם חוזר רק חלק?</strong> הבדיקה אומרת מראש כמה יחזור. חזר פחות מזה? מקבלים החזר חלקי מהמחיר שסוכם. לא חזר כלום? החזר מלא.</li>
@@ -307,7 +314,7 @@
 
 <section aria-labelledby="h-form">
 <h2 id="h-form">שלחו לי את הקובץ לבדיקה חינם</h2>
-<p>כתבו לי באיזו מצלמה צילמתם, מה קרה, ואיך הקובץ הגיע אליכם, והשאירו קישור לקובץ ולקליפ תקין. אחזור אליכם תוך יום.</p>
+<p>כתבו לי באיזו מצלמה צילמתם, מה קרה, ואיך הקובץ הגיע אליכם. אחזור אליכם תוך יום, ואז נעביר את הקובץ ואת הקליפ התקין.</p>
 <p class="consent">הפרטים שתשאירו ישמשו רק כדי לחזור אליכם. <a href="#h-priv">פרטיות</a>.</p>
 <div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&amp;transparentBackground=1" title="טופס פנייה" class="tally"></iframe></div>
 <p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
