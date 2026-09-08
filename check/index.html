@@ -105,10 +105,12 @@
   .tried li strong{color:#0b5058}
   .why{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:18px 0}
   .why li{margin:9px 0}
-  .cmp{width:100%;border-collapse:collapse;margin:14px 0;font-size:.97rem}
-  .cmp th,.cmp td{border:1px solid var(--line);padding:9px 10px;text-align:right;vertical-align:top}
-  .cmp th{background:var(--paper)}
-  .cmp td.me{background:var(--accent-soft);font-weight:600}
+  .cmp{width:100%;border-collapse:collapse;margin:14px 0;font-size:.97rem;table-layout:fixed;background:var(--paper)}
+  .cmp th,.cmp td{border:1px solid var(--line);padding:10px 12px;text-align:right;vertical-align:top;background:var(--paper)}
+  .cmp th{font-weight:700;background:#f1f0ec}
+  .cmp th:first-child,.cmp td:first-child{width:19%}
+  .cmp td.me{background:var(--accent);color:#fff;font-weight:600;border-color:var(--accent)}
+  .cmp tr:last-child td{border-top:3px solid #0b5058}
   .cmpwrap{overflow-x:auto}
   .promise{border:2px solid var(--accent);border-radius:12px;padding:18px 22px;margin:22px 0;background:var(--paper)}
   .promise h2{margin-top:0}
