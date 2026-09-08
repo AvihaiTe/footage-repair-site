@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://avihaite.github.io/footage-repair-site/sitemap.xml
+Sitemap: https://repair.avihaiteram.co.il/sitemap.xml
