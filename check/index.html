@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src https://tally.so">
+<meta name="referrer" content="no-referrer">
+<title>הקובץ מהמצלמה לא נפתח? בדקו בדקה אם אפשר להציל אותו</title>
+<meta name="description" content="שלוש שאלות קצרות, ובסוף תדעו מה קרה לקובץ, אם הצילומים עדיין בפנים ומה עושים עכשיו. ואם אתם לא רוצים להתעסק עם זה: שלחו לי את הקובץ, הבדיקה בחינם, ואם לא הצלחתי לשחזר, לא שילמתם.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avihaite.github.io/footage-repair-site/check/">
+<meta property="og:url" content="https://avihaite.github.io/footage-repair-site/check/">
+<meta property="og:image" content="https://avihaite.github.io/footage-repair-site/img/og-he.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="הקובץ מהמצלמה לא נפתח? בדקו בדקה אם אפשר להציל אותו">
+<meta property="og:description" content="שלוש שאלות קצרות, ובסוף תדעו מה קרה לקובץ, אם הצילומים עדיין בפנים ומה עושים עכשיו. ואם אתם לא רוצים להתעסק עם זה: שלחו לי את הקובץ, הבדיקה בחינם, ואם לא הצלחתי לשחזר, לא שילמתם.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%276%27%20fill=%27%230f6b73%27/%3E%3Cpath%20d=%27M8%2011h16v10H8z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3Cpath%20d=%2712%2021l4-6%204%206%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%272.5%27/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/assistant-hebrew-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/assistant-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/assistant.css">
+<style>
+  :root{--ink:#1c1c1c;--muted:#5a5a5a;--line:#e3e1dc;--bg:#faf9f6;--paper:#fff;--accent:#0f6b73;--accent-soft:#e6f2f3;--warn:#a8431a;--warn-soft:#fbeee7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Assistant,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif;font-size:1.1875rem;line-height:1.8}
+  .skip{position:absolute;right:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:4px;z-index:10}
+  .skip:focus{right:8px}
+  .top{background:var(--paper);border-bottom:1px solid var(--line);font-size:.95rem}
+  .top .in{max-width:960px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
+  .top .brand{font-weight:700;color:var(--ink);text-decoration:none;margin-inline-end:auto}
+  .top .brand span{font-weight:400;color:var(--muted)}
+  .top a{color:#0b5058}
+  @media (min-width:1400px){.top .in{max-width:1040px}}
+  .hero{background:var(--paper);border-bottom:1px solid var(--line)}
+  .hero .in{max-width:960px;margin:0 auto;padding:56px 24px 40px;position:relative}
+  nav.lang{position:absolute;top:22px;left:24px;font-size:.95rem;direction:ltr}
+  .hero .tag{display:block;color:#0b5058;font-weight:700;font-size:.875rem;margin-bottom:10px}
+  h1{font-size:2.375rem;line-height:1.2;margin:0 0 14px;font-weight:700}
+  .lead{font-size:1.3125rem;margin:0;max-width:760px}
+  .kw{color:var(--muted);font-size:.9375rem;margin-top:18px;max-width:760px}
+  main{max-width:960px;margin:0 auto;padding:16px 24px 40px}
+  section{margin:44px 0}
+  main section>p,main section>ul,main section>ol,main section>table,main section>h2,.legal>p{max-width:700px}
+  h2{font-size:1.5rem;margin:0 0 10px;font-weight:700;position:relative;padding-right:18px}
+  h2::before{content:"";position:absolute;right:0;top:9px;width:8px;height:20px;background:var(--accent);border-radius:2px}
+  p{margin:10px 0}
+  ul,ol{padding-right:24px;margin:10px 0}
+  li{margin:8px 0}
+  .warn{background:var(--warn-soft);border-right:5px solid var(--warn);border-radius:4px;padding:12px 18px;margin:14px 0}
+  .warn ul{margin:4px 0}
+  table{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:14px 0;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  caption{text-align:right;font-weight:600;padding:6px 0;color:var(--muted);font-size:.95rem}
+  th,td{padding:12px 14px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:#f3f2ee;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td:first-child{width:46%}
+  .steps li{margin:12px 0}
+  .steps li strong{color:#0b5058;font-weight:600}
+  form{display:grid;gap:12px;max-width:520px;margin-top:8px}
+  label{font-weight:600;display:block;margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #bdbab3;border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:3px solid #000;outline-offset:1px;border-color:var(--accent)}
+  .field small{color:var(--muted);font-size:.875rem}
+  .btn{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:6px;font:inherit;font-weight:700;font-size:1.125rem;cursor:pointer;justify-self:start}
+  .btn:hover{background:#0b565d}
+  .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .sent{background:var(--accent-soft);border-radius:6px;padding:14px 18px;margin-top:10px}
+  .sent:not(:target){display:none}
+  .tally{width:100%;height:640px;border:0;display:block}
+  .formcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 6px;margin-top:22px;max-width:600px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .alt{color:var(--muted);font-size:.95rem;margin-top:12px}
+  .consent{color:var(--muted);font-size:.95rem;margin:18px 0 -10px;max-width:600px}
+  figure{margin:18px 0 6px;max-width:760px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  figure img[src$="windows-cant-play-0xc00d36e5.png"]{max-width:560px}
+  figure img[src$="moov-atom-ffprobe.png"]{max-width:550px}
+  figure img[src$="untrunc-gui.png"]{max-width:600px}
+  figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px;line-height:1.6}
+  .brief{background:var(--accent-soft);border-radius:10px;padding:16px 20px;margin:22px 0 8px;max-width:760px}
+  .brief h2{margin-bottom:6px}
+  .brief ul{margin:4px 0}
+  .brief li{margin:8px 0}
+  .steps em{font-style:normal;color:#0b5058;font-weight:600}
+  .about{border-top:1px solid var(--line);padding-top:18px}
+  @media print{.skip,nav.lang,.formcard,.alt{display:none}main,.legal,footer{max-width:none}}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
+  .cta:hover{background:#0b565d}
+  a{color:#0b5058;text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus,.cta:focus{outline:3px solid #000;outline-offset:2px}
+  a:focus:not(:focus-visible),.cta:focus:not(:focus-visible){outline:none}
+  a:focus-visible,.cta:focus-visible{outline:3px solid #000;outline-offset:2px}
+  .legal{max-width:960px;margin:0 auto;padding:0 24px 40px;font-size:.95rem;color:var(--muted);border-top:1px solid var(--line)}
+  .legal h2{font-size:1.125rem;color:var(--ink);margin-top:26px}
+  .legal h2::before{height:16px;top:6px}
+  footer{max-width:960px;margin:0 auto;padding:0 24px 40px;color:var(--muted);font-size:.875rem}
+  @media (max-width:600px){nav.lang{position:static;display:block;margin-bottom:12px}h1{font-size:1.875rem}.lead{font-size:1.1875rem}body{font-size:1.125rem}td:first-child{width:auto}}
+  @media (min-width:1400px){body{font-size:1.3125rem}h1{font-size:2.75rem}.lead{font-size:1.5rem}main,.hero .in,.legal,footer{max-width:1040px}}
+  .test details{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:8px 0}
+  .test details[open]{border-color:var(--accent)}
+  .test summary{cursor:pointer;font-weight:700;padding:4px 0}
+  .test summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .test .q{margin-top:26px}
+  .verdict{border-right:5px solid var(--accent);background:var(--accent-soft);border-radius:4px;padding:10px 16px;margin:10px 0 4px}
+  .verdict.stop{border-right-color:var(--warn);background:var(--warn-soft)}
+  .verdict p{margin:6px 0}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:8px;margin-top:6px}
+  .cta:hover,.cta:focus-visible{background:#0b5058;color:#fff}
+  .how ol{padding-inline-start:22px}
+  .how li{margin:10px 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<nav class="top" aria-label="ניווט"><div class="in"><a class="brand" href="../">אביחי תרם <span>· שחזור קבצי וידאו</span></a><a href="../">המדריך המלא</a><a href="#h-form">בדיקה חינם</a><a href="../en/" lang="en" hreflang="en">English</a></div></nav>
+
+<header class="hero"><div class="in">
+<h1>הקובץ מהמצלמה לא נפתח? בדקו בדקה אם אפשר להציל אותו</h1>
+<p class="lead">המצלמה נכבתה באמצע, נגמרה הסוללה, הכרטיס נשלף מוקדם מדי, ועכשיו יש קובץ שאף נגן לא פותח. שלוש שאלות קצרות, ובסוף תדעו מה קרה לקובץ, אם הצילומים עדיין בפנים, ומה עושים עכשיו.</p>
+<p class="kw offer"><strong>לא רוצים להתעסק עם זה?</strong> שלחו לי את הקובץ. הבדיקה בחינם, ואם לא הצלחתי לשחזר, לא שילמתם. <a href="#h-form">איך שולחים</a>.</p>
+</div></header>
+
+<main id="main"><div class="in">
+
+<section class="test" aria-labelledby="h-test">
+<h2 id="h-test">הבדיקה: שלוש שאלות</h2>
+<p>לחצו על התשובה שמתאימה לכם. כל תשובה אומרת מה הצעד הבא.</p>
+
+<h3 class="q">1. איך הקובץ הגיע אליכם?</h3>
+<details><summary>ישירות מהכרטיס או מהמצלמה</summary>
+<p>טוב. אם הקובץ לא עבר בדרך, כל מה שהמצלמה כתבה עדיין בו. <strong>המשיכו לשאלה 2.</strong></p>
+</details>
+<details><summary>בהורדה, ב-WeTransfer, בדרייב, או בהעתקה ממישהו אחר</summary>
+<p>קודם השוו את גודל הקובץ למקור, כמו שהוא מופיע במצלמה או אצל מי ששלח אותו.</p>
+<div class="verdict stop"><p><strong>הקובץ קטן יותר, או נעצר בדיוק על מספר עגול של מגה-בייט?</strong> ההעברה נקטעה, והסוף של הקובץ ריק. שום תוכנה לא בונה חומר שלא הגיע. בקשו את הקובץ שוב, מהכרטיס המקורי, ואז חזרו לבדיקה.</p></div>
+<div class="verdict"><p><strong>אותו גודל בדיוק?</strong> הקובץ הגיע שלם. <strong>המשיכו לשאלה 2.</strong></p></div>
+<p>לא בטוחים מה הגודל המקורי? שלחו לי את הקובץ, ואני אומר לכם בדקה אם הסוף שלו ריק. <a href="#h-form">בחינם</a>.</p>
+</details>
+
+<h3 class="q">2. מה קרה בזמן הצילום?</h3>
+<details><summary>המצלמה נכבתה, נגמרה הסוללה, הכרטיס נשלף, או שהמצלמה קפאה</summary>
+<p>זה המקרה הנפוץ, וברוב הפעמים הצילומים עדיין בפנים. <strong>המשיכו לשאלה 3.</strong></p>
+</details>
+<details><summary>כלום. הצילום הסתיים רגיל, והקובץ פשוט לא נפתח במחשב</summary>
+<p>אז כנראה הקובץ תקין והבעיה בנגן. בדיקה של דקה: פתחו את הקובץ ב-VLC (נגן חינמי).</p>
+<div class="verdict"><p><strong>VLC מנגן אותו?</strong> הקובץ בסדר. המחשב פשוט לא מכיר את שיטת הדחיסה של המצלמה. הפתרון בחינם ולוקח דקה: <a href="../0xc00d36c4/">ההסבר כאן</a>.</p></div>
+<div class="verdict"><p><strong>גם VLC לא פותח?</strong> הקובץ באמת פגום. <strong>המשיכו לשאלה 3.</strong></p></div>
+</details>
+
+<h3 class="q">3. מה נשאר על הכרטיס?</h3>
+<details><summary>קובץ עם סיומת RSV (מצלמות סוני: FX3, FX30, FX6, A7)</summary>
+<div class="verdict">
+<p><strong>מה קרה:</strong> ההקלטה נקטעה לפני שהמצלמה סיימה לכתוב את ה“מפה” של הקובץ, החלק שאומר לנגן איפה יושב כל פריים. התמונה והסאונד כמעט תמיד בפנים.</p>
+<p><strong>הסיכוי:</strong> טוב מאוד, אם הקובץ הגיע ישירות מהכרטיס.</p>
+<p><strong>מה צריך:</strong> קליפ תקין מאותה מצלמה, באותן הגדרות, רצוי מאותו יום. ואת הכרטיס להשאיר בצד: לא לפרמט, לא לצלם עליו.</p>
+<p>רוצים לנסות לבד? <a href="../rsv-file/">המדריך לקובץ RSV</a>, עם תוכנה חינמית. מעדיפים שאני אעשה את זה? <a class="cta" href="#h-form">שלחו לי את הקובץ לבדיקה חינם</a></p>
+</div>
+</details>
+<details><summary>קובץ MP4 או MOV שלא נפתח (DJI, GoPro, מצלמות אחרות, טלפון)</summary>
+<div class="verdict">
+<p><strong>מה קרה:</strong> אותו סיפור כמו אצל סוני, רק בלי סיומת מיוחדת: המצלמה כתבה את הצילומים, ולא הספיקה לכתוב את ה“מפה”. אם ניסיתם לבדוק אותו בתוכנה, אולי ראיתם את ההודעה moov atom not found.</p>
+<p><strong>הסיכוי:</strong> טוב, אם הקובץ הגיע ישירות מהכרטיס. ב-DJI וב-GoPro המצלמה עצמה מנסה לפעמים לתקן כשמחזירים את הכרטיס ומדליקים.</p>
+<p><strong>מה צריך:</strong> קליפ תקין מאותה מצלמה באותן הגדרות. את הכרטיס להשאיר בצד.</p>
+<p>רוצים לנסות לבד? <a href="../dji-gopro-video-wont-open/">המדריך ל-DJI ו-GoPro</a> או <a href="../moov-atom-not-found/">ההסבר על moov atom not found</a>. מעדיפים שאני אעשה את זה? <a class="cta" href="#h-form">שלחו לי את הקובץ לבדיקה חינם</a></p>
+</div>
+</details>
+<details><summary>המחשב לא מזהה את הכרטיס בכלל, או מציע לפרמט אותו</summary>
+<div class="verdict stop">
+<p><strong>זו בעיה אחרת:</strong> לא בקובץ, אלא בכרטיס. קודם כול, אל תפרמטו. ההודעה “הכרטיס לא מפורמט, לפרמט עכשיו?” היא זו שמוחקת את הסיכוי.</p>
+<p><strong>מה כן:</strong> נסו קורא כרטיסים אחר וכבל אחר, ואז את המצלמה עצמה בכבל למחשב. הרבה פעמים “הכרטיס מת” הוא בעצם קורא כרטיסים מת. אם עדיין כלום, זה מקרה למעבדה, לא לתוכנה: <a href="../#h-dead">מה בודקים לפני שפונים למעבדה</a>.</p>
+</div>
+</details>
+</section>
+
+<section class="how" aria-labelledby="h-how">
+<h2 id="h-how">מה קורה אחרי ששולחים</h2>
+<ol>
+<li><strong>שולחים לי קישור לקובץ ולקליפ תקין מאותה מצלמה</strong> (דרייב, WeTransfer, מה שנוח). הקובץ גדול? זה בסדר, גם 60 ג׳יגה.</li>
+<li><strong>תוך יום אני אומר לכם בדיוק מה המצב:</strong> אם החומר בפנים, כמה ממנו, ומה אפשר להחזיר. <strong>הבדיקה הזאת בחינם</strong>, בלי התחייבות.</li>
+<li><strong>אם יש מה לשחזר ותרצו להמשיך:</strong> מחיר לפני העבודה, ולא גובה כלום בלי שאישרתם אותו. אפשר לבטל בכל שלב לפני שהעבודה מתחילה, ואם לא הצלחתי לשחזר, לא שילמתם.</li>
+</ol>
+</section>
+
+<section aria-labelledby="h-proof">
+<h2 id="h-proof">מה כבר עבר כאן</h2>
+<p>הקלטה של כמעט שעתיים מ-FX3 שהמצלמה לא סיימה לכתוב, חזרה שלמה. קובץ מ-DJI שהגיע בהורדה ונעצר בדיוק על 1,050 מגה-בייט: 88 אחוז ממנו היו ריקים, ואמרתי את זה מראש במקום לגבות על ניסיון. שני הכיוונים חשובים, ובשניהם התשובה מגיעה לפני שמשלמים.</p>
+</section>
+
+<section class="about" aria-labelledby="h-about">
+<h2 id="h-about">מי אני</h2>
+<p>אביחי תרם, צלם ועורך וידאו. אני מצלם על Sony FX3 ועובד עם קבצי מצלמה כאלה כל יום, אז אני יודע איך מצלמה כותבת אותם ומה נשבר כשהיא נכבית באמצע, וכבר החזרתי לחיים קבצים כאלה מסוני ומ-DJI. אפשר למצוא אותי גם באינסטגרם: <a href="https://www.instagram.com/avihai.teram/" target="_blank" rel="noopener">@avihai.teram</a>.</p>
+</section>
+
+<section aria-labelledby="h-form">
+<h2 id="h-form">שלחו לי את הקובץ לבדיקה חינם</h2>
+<p>כתבו איזו מצלמה, מה קרה, ואיך הקובץ הגיע אליכם, והשאירו קישור לקובץ ולקליפ תקין. אני חוזר אליכם תוך יום.</p>
+<p class="consent">הפרטים שתשאירו ישמשו רק כדי לחזור אליכם. <a href="../#h-priv">פרטיות</a>.</p>
+<div class="formcard"><iframe src="https://tally.so/embed/Pdx6v1?alignLeft=1&amp;transparentBackground=1" title="טופס פנייה" class="tally"></iframe></div>
+<p class="alt">מעדיפים מייל? avihaiteram@gmail.com</p>
+</section>
+
+</div></main>
+<footer>אביחי תרם · נבדק לאחרונה: ספטמבר 2026 · <a href="../">המדריך המלא</a> · <a href="../#h-priv">פרטיות</a> · <a href="../#h-liab">פרטי העסק והסתייגות</a></footer>
+</body>
+</html>
