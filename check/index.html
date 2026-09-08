@@ -151,11 +151,12 @@
     .cmp tr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 10px}
     .cmp td{border:0;padding:3px 0;text-align:right;background:transparent}
     .cmp td:first-child{width:auto;font-weight:700;font-size:1.08rem;color:var(--accent);padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:4px}
-    .cmp td:not(:first-child)::before{content:attr(data-label) ": ";font-weight:700;color:var(--muted)}
+    .cmp td:not(:first-child)::before{content:attr(data-label) ": ";font-weight:700;color:var(--accent)}
     .cmp tr:last-child{background:var(--accent);border-color:var(--accent)}
     .cmp tr:last-child td{color:#fff;background:transparent}
     .cmp tr:last-child td:first-child{color:#fff;border-bottom-color:rgba(255,255,255,.4)}
-    .cmp tr:last-child td:not(:first-child)::before{color:rgba(255,255,255,.85)}
+    .cmp tr:last-child td:not(:first-child)::before{color:#fff}
+    .cmp tr:last-child td:not(:first-child){color:#e6f2f3}
   }
   .about{text-align:center}
   .about img.me{float:none;display:block;margin:0 auto 14px;width:230px}
