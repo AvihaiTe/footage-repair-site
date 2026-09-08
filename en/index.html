@@ -91,6 +91,9 @@
   .brief li{margin:8px 0}
   .steps em{font-style:normal;color:#0b5058;font-weight:600}
   .about{border-top:1px solid var(--line);padding-top:18px}
+  .about img.me{float:left;width:190px;height:auto;border-radius:12px;margin:4px 0 10px 20px}
+  @media (max-width:600px){.about img.me{float:none;display:block;margin:0 auto 14px;width:210px}}
+  .about::after{content:"";display:block;clear:both}
   @media print{.skip,nav.lang,.formcard,.alt{display:none}main,.legal,footer{max-width:none}}
   .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:6px;font-weight:700;font-size:1.125rem;margin-top:6px}
   .cta:hover{background:#0b565d}
@@ -215,6 +218,7 @@
 
 <section class="about" aria-labelledby="h-about">
 <h2 id="h-about">Who I am</h2>
+<img class="me" src="../img/avihai-fx3.jpg" width="740" height="925" alt="Avihai Teram adjusting a camera on a tripod, a softbox behind him" loading="lazy">
 <p>Avihai Teram, videographer and video editor. I shoot on a Sony FX3 and work with camera files like these every day, so I know how a camera writes them and what breaks when it shuts off mid-recording, and I have brought files like these back from Sony and DJI cameras. Send me a file that won't open: the first check is always free, and if I couldn't recover it, you get your money back. You can also find me on Instagram: <a href="https://www.instagram.com/avihai.teram/" target="_blank" rel="noopener">@avihai.teram</a>.</p>
 </section>
 
